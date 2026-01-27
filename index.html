@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wedding Photography & Videography in Aranthangi | D6 Media Studio</title>
+<meta name="description" content="D6 Media Studio offers premium wedding photography and cinematic videography services in Aranthangi, Tamil Nadu. Traditional Tamil weddings, drone shoots, albums & events.">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --black:#050505;
+  --gold:#d4af37;
+  --white:#ffffff;
+  --muted:#cfcfcf;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:var(--black);
+  color:var(--white);
+  font-family:'Poppins',sans-serif;
+  overflow-x:hidden;
+  cursor:none;
+}
+a{text-decoration:none;color:inherit}
+
+/* ================= CURSOR ================= */
+.cursor-dot{
+  position:fixed;
+  width:6px;height:6px;
+  background:var(--gold);
+  border-radius:50%;
+  pointer-events:none;
+  z-index:10000;
+  transform:translate(-50%,-50%);
+}
+.cursor-ring{
+  position:fixed;
+  width:34px;height:34px;
+  border:1.5px solid rgba(212,175,55,.6);
+  border-radius:50%;
+  pointer-events:none;
+  z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:.25s ease;
+}
+.cursor-ring.active{
+  width:70px;height:70px;
+  border:2px solid rgba(212,175,55,.95);
+  box-shadow:0 0 40px rgba(212,175,55,.8);
+}
+.cursor-ring.click{
+  animation:pulse .35s ease;
+}
+@keyframes pulse{
+  0%{transform:translate(-50%,-50%) scale(1)}
+  50%{transform:translate(-50%,-50%) scale(1.6)}
+  100%{transform:translate(-50%,-50%) scale(1)}
+}
+.cursor-trail{
+  position:fixed;
+  width:18px;height:18px;
+  border-radius:50%;
+  background:rgba(212,175,55,.8);
+  box-shadow:0 0 25px rgba(212,175,55,.8);
+  pointer-events:none;
+  animation:trail 1.2s linear forwards;
+  z-index:9998;
+}
+@keyframes trail{
+  to{opacity:0;transform:scale(.2)}
+}
+.sparkle{
+  position:fixed;
+  width:6px;height:6px;
+  background:radial-gradient(circle,#ffd700,#d4af37);
+  border-radius:50%;
+  pointer-events:none;
+  animation:spark .7s ease-out forwards;
+  z-index:10001;
+}
+@keyframes spark{
+  to{opacity:0;transform:translate(var(--x),var(--y)) scale(0)}
+}
+
+/* ================= NAV ================= */
+nav{
+  position:fixed;top:0;width:100%;
+  padding:20px 60px;
+  display:flex;justify-content:space-between;align-items:center;
+  background:rgba(0,0,0,.75);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+nav img{height:45px}
+nav ul{display:flex;gap:30px;list-style:none}
+nav a:hover{color:var(--gold)}
+
+/* ================= HERO ================= */
+.hero{
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+}
+.hero video{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.15);
+  will-change:transform;
+}
+
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.85));
+  display:flex;align-items:center;justify-content:center;text-align:center
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:64px;color:var(--gold);letter-spacing:4px
+}
+.hero p{margin:20px 0;color:var(--muted)}
+.hero a{
+  padding:15px 45px;border:1px solid var(--gold);
+  border-radius:40px;color:var(--gold);
+}
+.hero a:hover{
+  background:var(--gold);color:#000;
+  box-shadow:0 0 30px rgba(212,175,55,.6)
+}
+.hero{
+  position:relative;
+  z-index:1;
+}
+.hero-parallax{
+  will-change: transform, opacity, filter;
+  transition: filter .15s linear;
+}
+
+
+/* ================= SECTION ================= */
+section{padding:120px 8%}
+.title{text-align:center;margin-bottom:70px}
+.title h2{
+  font-family:'Playfair Display',serif;
+  color:var(--gold);font-size:42px
+}
+
+/* ================= SERVICES ================= */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
+}
+.service{
+  padding:40px;border-radius:22px;
+  background:#0e0e0e;
+  border:1px solid rgba(212,175,55,.08);
+  text-align:center;
+  transition:.4s;
+}
+.service:hover{
+  transform:translateY(-10px);
+  box-shadow:0 0 30px rgba(212,175,55,.3);
+}
+
+/* ================= GALLERY ================= */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+
+.gallery img{
+  width:100%;
+  height:420px;
+  aspect-ratio: 2 / 3;
+  object-fit:cover;
+  background:#0b0b0b;
+  padding:10px;
+  border-radius:22px;
+  transition:.6s cubic-bezier(.22,.61,.36,1);
+}
+
+.gallery img.magnet{
+  transform:scale(1.05);
+  box-shadow:0 0 35px rgba(212,175,55,.35);
+}
+/* ================= CONTACT ================= */
+.contact{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:40px;
+}
+.contact-box{
+  background:#0e0e0e;
+  padding:40px;border-radius:20px
+}
+.contact-box input,.contact-box textarea{
+  width:100%;margin:10px 0;padding:14px;
+  border:none;border-radius:10px;
+  background:#1a1a1a;color:#fff
+}
+.contact-box button{
+  width:100%;padding:14px;
+  background:var(--gold);border:none;
+  border-radius:10px;font-weight:600
+}
+
+/* ================= FOOTER ================= */
+footer{
+  padding:50px;text-align:center;
+  background:#020202;color:#777;font-size:13px
+}
+.whatsapp{
+  position:fixed;right:22px;bottom:22px;
+  background:var(--gold);color:#000;
+  padding:15px 22px;border-radius:50px;
+  font-weight:700;box-shadow:0 0 25px rgba(212,175,55,.4)
+}
+html{
+  scroll-behavior: smooth;
+}
+.reveal{
+  opacity:0;
+  transform:translateY(60px) scale(.96);
+  transition:
+    opacity 1s cubic-bezier(.22,.61,.36,1),
+    transform 1s cubic-bezier(.22,.61,.36,1);
+}
+
+.reveal.show{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+
+/* ===== PARALLAX SECTIONS ===== */
+.parallax{
+  position:relative;
+  will-change: transform;
+  transition: transform .1s linear;
+}
+/* ===== HERO PARALLAX ===== */
+.hero video{
+  transform: scale(1.1);
+  transition: transform .15s linear;
+  will-change: transform;
+}
+
+.hero-parallax{
+  transition:
+    transform .15s linear,
+    opacity .15s linear;
+  will-change: transform, opacity;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- CURSOR -->
+<div class="cursor-dot"></div>
+<div class="cursor-ring"></div>
+
+<nav>
+  <img src="images/logo-vertical-gold.png">
+  <ul>
+  <li><a href="#home">Home</a></li>
+  <li><a href="#services">Services</a></li>
+  <li><a href="#gallery">Gallery</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<div class="hero" id="home">
+  <video autoplay muted loop playsinline>
+    <source src="video/hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-overlay">
+  <div class="hero-content hero-parallax">
+    <h1>D6 MEDIA STUDIO</h1>
+    <p>Preserving Moments That Matter</p>
+    <a href="#contact">Book Your Story</a>
+  </div>
+</div>
+
+</div>
+<div class="seo-link">
+  <a href="/wedding-photography-aranthangi.html">
+    Wedding Photography in Aranthangi
+  </a>
+</div>
+
+<section id="services" class="reveal parallax">
+  <div class="title"><h2>Our Services</h2></div>
+  <div class="services">
+    <div class="service">Wedding Photography</div>
+    <div class="service">Wedding Videography</div>
+    <div class="service">Cinematic Wedding Films</div>
+    <div class="service">Drone Shoots</div>
+    <div class="service">Birthday Shoots</div>
+  </div>
+</section>
+
+<section id="gallery" class="reveal parallax">
+  <div class="title"><h2>Gallery</h2></div>
+  <div class="gallery">
+    <img src="images/gallery1.jpg">
+    <img src="images/gallery2.jpg">
+    <img src="images/gallery3.jpg">
+  </div>
+</section>
+<section id="about" class="reveal parallax">
+  <div class="title">
+    <h2>About</h2>
+  </div>
+
+  <div class="about">
+    <p>
+      <strong>D6 Media Studio</strong> is a premium wedding photography and cinematic videography studio
+      dedicated to preserving moments that matter. We specialize in <strong>traditional Tamil wedding photography</strong>,
+      <strong>luxury wedding videography</strong>, and <strong>cinematic wedding films</strong> that capture
+      real emotions, timeless rituals, and beautiful love stories.
+      <br><br>
+      From intimate wedding ceremonies to grand receptions, our experienced team focuses on storytelling,
+      natural expressions, and artistic visuals. Using professional cameras, creative lighting, and
+      cinematic techniques, we deliver high-quality <strong>wedding photos, highlight videos, and full-length wedding films</strong>
+      that couples can cherish for a lifetime.
+      <br><br>
+      Based in Tamil Nadu, D6 Media Studio also offers <strong>drone wedding shoots, event coverage, maternity shoots,
+      puberty ceremonies, and premium album designing</strong>. Every project is handled with passion,
+      precision, and a commitment to excellence, making us a trusted choice for couples looking for
+      elegant, emotional, and modern wedding photography and videography services. 
+      a premium wedding photography and videography studio in Aranthangi, Pudukkottai, specializing in cinematic wedding films, candid photography, and luxury wedding albums.
+
+    </p>
+  </div>
+</section>
+
+<section id="contact" class="reveal parallax">
+  <div class="title">
+    <h2>Contact Us</h2>
+    <p>Let’s Create Your Story</p>
+  </div>
+
+  <div class="contact">
+    <div class="contact-box">
+
+      <form action="https://api.web3forms.com/submit" method="POST">
+
+        <!-- Web3Forms Access Key -->
+        <input type="hidden" name="access_key" value="2df3120e-612d-4b2c-bffe-722ab8f708bc">
+
+        <!-- Optional Settings -->
+        <input type="hidden" name="subject" value="New Enquiry - D6 Media Studio">
+        <input type="hidden" name="from_name" value="D6 Media Studio Website">
+        <input type="hidden" name="redirect" value="https://d6mediastudio.in/thank-you.html">
+
+        <!-- User Inputs -->
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Enquiry</button>
+
+      </form>
+
+    </div>
+
+    <div class="contact-box">
+      <b style="color:var(--gold)">D6 MEDIA STUDIO</b><br><br>
+      📞 9080928044<br>
+      📞 9790826453<br><br>
+      📧 d6mediastudio@gmail.com<br><br>
+      📍 103/4, Rajendrapuram, Aranthangi, Tamil Nadu - 614624
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 D6 MEDIA STUDIO • Premium Brand Studio<br><br>
+
+  <a href="/wedding-photography-aranthangi.html" style="color:#d4af37;">
+    Wedding Photography in Aranthangi
+  </a>
+</footer>
+<a class="whatsapp" href="https://wa.me/919080928044">💬 WhatsApp</a>
+<script>
+const heroVideo = document.querySelector('.hero video');
+const heroText  = document.querySelector('.hero-parallax');
+
+window.addEventListener('scroll', ()=>{
+  const scrollY = window.scrollY;
+
+  // video slow zoom out
+  if(heroVideo){
+    const scale = Math.max(1.05, 1.15 - scrollY * 0.0003);
+    heroVideo.style.transform = `scale(${Math.max(scale,1)})`;
+  }
+
+  // text move + fade
+  if(heroText){
+   const startBlurAt = 120; // px scroll after
+const blurValue =
+  scrollY > startBlurAt
+    ? Math.min((scrollY - startBlurAt) * 0.03, 8)
+    : 0;
+
+heroText.style.filter = `blur(${blurValue}px)`;
+
+  }
+});
+</script>
+
+<script>
+/* ===== ULTRA CURSOR SCRIPT ===== */
+const dot=document.querySelector('.cursor-dot');
+const ring=document.querySelector('.cursor-ring');
+let mx=0,my=0,rx=0,ry=0;
+
+let lastTrail = 0;
+let trailEnabled = true;
+
+window.addEventListener('mousemove', e => {
+  mx = e.clientX;
+  my = e.clientY;
+
+  dot.style.left = mx + 'px';
+  dot.style.top  = my + 'px';
+
+  const now = Date.now();
+
+  //trail only once every 0.5ms (luxury smooth)
+  if (trailEnabled && now - lastTrail > 60) {
+    lastTrail = now;
+
+    const t = document.createElement('div');
+    t.className = 'cursor-trail';
+    t.style.left = mx - 9 + 'px';
+    t.style.top  = my - 9 + 'px';
+    document.body.appendChild(t);
+
+    setTimeout(() => t.remove(), 1200);
+  }
+});
+
+
+(function animate(){
+  rx+=(mx-rx)*0.15;
+  ry+=(my-ry)*0.15;
+  ring.style.left=rx+'px';
+  ring.style.top=ry+'px';
+  requestAnimationFrame(animate);
+})();
+
+document.querySelectorAll('a,button,img,.service')
+.forEach(el=>{
+  el.onmouseenter=()=>ring.classList.add('active');
+  el.onmouseleave=()=>ring.classList.remove('active');
+});
+
+window.onmousedown=()=>ring.classList.add('click');
+window.onmouseup=()=>ring.classList.remove('click');
+
+window.onclick=e=>{
+  for(let i=0;i<12;i++){
+    const s=document.createElement('div');
+    s.className='sparkle';
+    s.style.left=e.clientX+'px';
+    s.style.top=e.clientY+'px';
+    s.style.setProperty('--x',(Math.random()-0.5)*100+'px');
+    s.style.setProperty('--y',(Math.random()-0.5)*100+'px');
+    document.body.appendChild(s);
+    setTimeout(()=>s.remove(),700);
+  }
+};
+
+document.querySelectorAll('.gallery img').forEach(img=>{
+  img.onmouseenter=()=>img.classList.add('magnet');
+  img.onmouseleave=()=>{img.classList.remove('magnet');img.style.transform=''};
+  img.onmousemove=e=>{
+    const r=img.getBoundingClientRect();
+    const x=e.clientX-r.left-r.width/2;
+    const y=e.clientY-r.top-r.height/2;
+    img.style.transform=`scale(1.08) translate(${x*0.06}px,${y*0.06}px)`;
+  };
+});
+/* ===== GALLERY MAGNETIC ZOOM ===== */
+document.querySelectorAll('.gallery img').forEach(img => {
+
+  img.addEventListener('mouseenter', () => {
+    img.classList.add('magnet');
+    trailEnabled = false;   //
+  });
+
+  img.addEventListener('mouseleave', () => {
+    img.classList.remove('magnet');
+    img.style.transform = '';
+    trailEnabled = true;    //
+  });
+
+  img.addEventListener('mousemove', e => {
+    const rect = img.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top  - rect.height / 2;
+
+    img.style.transform =
+      `scale(1.08) translate(${x * 0.06}px, ${y * 0.06}px)`;
+  });
+
+});
+</script>
+<script>
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+  reveals.forEach(el=>{
+    const top = el.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+
+    if(top < windowHeight - 120){
+      el.classList.add("show");
+    }
+  });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll(); // page load-la first time
+</script>
+<script>
+document.querySelectorAll('nav a').forEach(link=>{
+  link.addEventListener('click', e=>{
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if(!target) return;
+
+    window.scrollTo({
+      top: target.offsetTop - 80, // nav height adjust
+      behavior: 'smooth'
+    });
+  });
+});
+</script>
+<script>
+const parallaxSections = document.querySelectorAll('.parallax');
+
+window.addEventListener('scroll', ()=>{
+  const scrollY = window.scrollY;
+
+  parallaxSections.forEach(section=>{
+    const speed = 0.15; // 👈 slow luxury speed
+    const offset = section.offsetTop;
+    const height = section.offsetHeight;
+
+    if(scrollY + window.innerHeight > offset &&
+       scrollY < offset + height){
+
+      const yPos = (scrollY - offset) * speed;
+      section.style.transform = `translateY(${yPos}px)`;
+    }
+  });
+});
+</script>
+
+</body>
+</html>
