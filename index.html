@@ -59,19 +59,6 @@ a{text-decoration:none;color:inherit}
   50%{transform:translate(-50%,-50%) scale(1.6)}
   100%{transform:translate(-50%,-50%) scale(1)}
 }
-.cursor-trail{
-  position:fixed;
-  width:18px;height:18px;
-  border-radius:50%;
-  background:rgba(212,175,55,.8);
-  box-shadow:0 0 25px rgba(212,175,55,.8);
-  pointer-events:none;
-  animation:trail 1.2s linear forwards;
-  z-index:9998;
-}
-@keyframes trail{
-  to{opacity:0;transform:scale(.2)}
-}
 .sparkle{
   position:fixed;
   width:6px;height:6px;
@@ -255,6 +242,130 @@ html{
     opacity .15s linear;
   will-change: transform, opacity;
 }
+/* === GOOGLE REVIEWS GRID (SAFE) === */
+.reviews-grid{
+  display:grid;
+  grid-template-columns:repeat(3, minmax(260px,1fr));
+  gap:34px;
+  max-width:1100px;
+  margin:60px auto 0;
+  justify-items:center;
+}
+
+.review-card{
+  width:100%;
+  max-width:340px;
+  background:#0e0e0e;
+  padding:32px 26px;
+  border-radius:22px;
+  border:1px solid rgba(212,175,55,.15);
+  text-align:center;
+
+  transition:
+    transform .35s cubic-bezier(.22,.61,.36,1),
+    box-shadow .35s ease;
+}
+
+.review-card:hover{
+  transform:translateY(-14px);
+  box-shadow:0 22px 55px rgba(212,175,55,.35);
+}
+
+.review-card .stars{
+  color:#d4af37;
+  letter-spacing:3px;
+  margin-bottom:12px;
+}
+
+.review-card p{
+  font-size:15px;
+  line-height:1.6;
+  color:#e6e6e6;
+}
+
+.review-card span{
+  display:block;
+  margin-top:14px;
+  font-size:13px;
+  color:#bdbdbd;
+}
+
+/* Row-1 center (2 cards) */
+.review-row-1{
+  grid-column:1 / -1;
+  display:flex;
+  gap:34px;
+  justify-content:center;
+}
+
+/* CTA button */
+.review-action{
+  margin-top:60px;
+  text-align:center;
+}
+
+.review-action a{
+  display:inline-block;
+  padding:14px 34px;
+  border-radius:30px;
+  color:#d4af37;
+  border:1px solid rgba(212,175,55,.45);
+  transition:.3s ease;
+}
+
+.review-action a:hover{
+  background:#d4af37;
+  color:#000;
+  box-shadow:0 0 30px rgba(212,175,55,.6);
+}
+
+/* Mobile safe */
+@media(max-width:900px){
+  .reviews-grid{
+    grid-template-columns:1fr;
+  }
+  .review-row-1{
+    flex-direction:column;
+  }
+}
+#img-lightbox{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.92);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:2147483646;
+}
+
+#img-lightbox img{
+  max-width:90%;
+  max-height:90%;
+  border-radius:24px;
+  box-shadow:0 0 60px rgba(212,175,55,.45);
+}
+
+#img-lightbox.active{
+  display:flex;
+}
+
+.lb-close{
+  position:absolute;
+  top:30px;
+  right:40px;
+  font-size:42px;
+  color:#d4af37;
+  cursor:pointer;
+  z-index:2147483647;
+}
+/* SEO hidden – visible aaga koodaadhu */
+.seo-hidden{
+  position:absolute;
+  left:-9999px;
+  width:1px;
+  height:1px;
+  overflow:hidden;
+}
 
 </style>
 </head>
@@ -289,31 +400,104 @@ html{
 </div>
 
 </div>
-<div class="seo-link">
+<div class="seo-link seo-hidden">
   <a href="/wedding-photography-aranthangi.html">
     Wedding Photography in Aranthangi
   </a>
 </div>
 
+
 <section id="services" class="reveal parallax">
-  <div class="title"><h2>Our Services</h2></div>
+  <div class="title">
+    <h2>Our Services</h2>
+  </div>
+
   <div class="services">
+   
     <div class="service">Wedding Photography</div>
     <div class="service">Wedding Videography</div>
+    <div class="service">Traditional Photos</div>
+    <div class="service">Traditional Videos</div>
+    <div class="service">Candid Photos</div>
+    <div class="service">Candid Videos</div>
+    <div class="service">Drone Shoots</div>    
     <div class="service">Cinematic Wedding Films</div>
-    <div class="service">Drone Shoots</div>
+    <div class="service">Outdoor Shoots</div>
     <div class="service">Birthday Shoots</div>
+    <div class="service">Maternity Shoots</div>
+    <div class="service">Baby Shoots</div>
+    <div class="service">AI Studio Service</div>
+    <div class="service">Party Photography</div>
+    <div class="service">Party Photography</div>
+    <div class="service">Model Photography</div>
+    <div class="service">Fashion Portfolio</div>
+    <div class="service">Fashion Photography</div>
+    <div class="service">Runway Photography</div>
+    <div class="service">Album Designing</div>
+
+
   </div>
 </section>
 
+
 <section id="gallery" class="reveal parallax">
   <div class="title"><h2>Gallery</h2></div>
+
   <div class="gallery">
-    <img src="images/gallery1.jpg">
-    <img src="images/gallery2.jpg">
-    <img src="images/gallery3.jpg">
+
+   <a class="lightbox" data-img="images/gallery1.jpg">
+  <img src="images/gallery1.jpg">
+</a>
+
+
+    <a class="lightbox" data-img="images/gallery1.jpg">
+  <img src="images/gallery2.jpg">
+</a>
+
+
+   <a class="lightbox" data-img="images/gallery1.jpg">
+  <img src="images/gallery3.jpg">
+</a>
+
+
+    <a class="lightbox" data-img="images/gallery1.jpg">
+  <img src="images/gallery4.jpg">
+</a>
+
+
+    <a class="lightbox" data-img="images/gallery1.jpg">
+  <img src="images/gallery5.jpg">
+</a>
+
+
+    <a class="lightbox" data-img="images/gallery1.jpg">
+  <img src="images/gallery6.jpg">
+</a>
+
+
+    <a class="lightbox" data-img="images/gallery1.jpg">
+  <img src="images/gallery7.jpg">
+</a>
+
+
+   <a class="lightbox" data-img="images/gallery1.jpg">
+  <img src="images/gallery8.jpg">
+</a>
+
+
+   <a class="lightbox" data-img="images/gallery1.jpg">
+  <img src="images/gallery9.jpg">
+</a>
+
+
+    <a class="lightbox" data-img="images/gallery1.jpg">
+  <img src="images/gallery10.jpg">
+</a>
+
+
   </div>
 </section>
+
 <section id="about" class="reveal parallax">
   <div class="title">
     <h2>About</h2>
@@ -338,6 +522,75 @@ html{
       a premium wedding photography and videography studio in Aranthangi, Pudukkottai, specializing in cinematic wedding films, candid photography, and luxury wedding albums.
 
     </p>
+  </div>
+</section>
+<section id="reviews" class="reveal">
+  <div class="title">
+    <h2>Google Reviews</h2>
+    <p style="color:#cfcfcf">⭐ 4.8 / 5 based on Google reviews</p>
+  </div>
+
+  <div class="reviews-grid">
+
+    <!-- ROW 1 : 2 centered -->
+    <div class="review-row-1">
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>Luxury cinematic wedding photography. Truly premium work.</p>
+        <span>– Mani Kandan</span>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">★★★★★</div>
+        <p>Best wedding photography studio in Aranthangi.</p>
+        <span>– Tasfeek Rahman</span>
+      </div>
+    </div>
+
+    <!-- ROW 2 : 3 -->
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>Perfect storytelling and natural candid moments.</p>
+      <span>– Sabari Krishnan</span>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>Album quality and video output exceeded expectations.</p>
+      <span>– Sanmathi Siva</span>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>Professional team with cinematic vision.</p>
+      <span>– Gowsi Satwika</span>
+    </div>
+
+    <!-- ROW 3 : 3 -->
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>On-time delivery and premium output.</p>
+      <span>– Karthik</span>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>Highly recommended for traditional Tamil weddings.</p>
+      <span>– Priya</span>
+    </div>
+
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>Cinematic video quality is outstanding.</p>
+      <span>– Naveen</span>
+    </div>
+
+  </div>
+
+  <div class="review-action">
+    <a href="https://g.page/r/CWx96am988FxEAE/review" target="_blank">
+      ⭐ View & Write a Google Review
+    </a>
   </div>
 </section>
 
@@ -382,7 +635,7 @@ html{
 </section>
 
 <footer>
-  © 2026 D6 MEDIA STUDIO • Premium Brand Studio<br><br>
+  © 2026 D6 MEDIA STUDIO • by Prasath Sivaguru<br><br>
 
   <a href="/wedding-photography-aranthangi.html" style="color:#d4af37;">
     Wedding Photography in Aranthangi
@@ -434,18 +687,7 @@ window.addEventListener('mousemove', e => {
 
   const now = Date.now();
 
-  //trail only once every 0.5ms (luxury smooth)
-  if (trailEnabled && now - lastTrail > 60) {
-    lastTrail = now;
 
-    const t = document.createElement('div');
-    t.className = 'cursor-trail';
-    t.style.left = mx - 9 + 'px';
-    t.style.top  = my - 9 + 'px';
-    document.body.appendChild(t);
-
-    setTimeout(() => t.remove(), 1200);
-  }
 });
 
 
@@ -565,6 +807,11 @@ window.addEventListener('scroll', ()=>{
   });
 });
 </script>
+<!-- LIGHTBOX -->
+<div id="img-lightbox">
+  <span class="lb-close">×</span>
+  <img id="lb-img">
+</div>
 
 </body>
 </html>
