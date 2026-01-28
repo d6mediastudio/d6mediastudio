@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Thank You | D6 Media Studio</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --gold:#d4af37;
+  --black:#050505;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#000;
+  font-family:'Poppins',sans-serif;
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  color:#fff;
+}
+
+/* ===== FLASH ===== */
+.flash{
+  position:fixed;
+  inset:0;
+  background:white;
+  opacity:0;
+  pointer-events:none;
+  z-index:9999;
+}
+
+/* ===== CARD ===== */
+.card{
+  background:#050505;
+  border-radius:24px;
+  padding:50px 45px;
+  text-align:center;
+  box-shadow:0 0 60px rgba(212,175,55,.4);
+  animation:pop 1s ease forwards;
+  z-index:2;
+}
+
+@keyframes pop{
+  from{transform:scale(.7);opacity:0}
+  to{transform:scale(1);opacity:1}
+}
+
+.card img{
+  width:90px;
+  margin-bottom:20px;
+  animation:logoGlow 2s ease infinite alternate;
+}
+
+@keyframes logoGlow{
+  from{filter:drop-shadow(0 0 10px rgba(212,175,55,.5))}
+  to{filter:drop-shadow(0 0 30px rgba(212,175,55,.9))}
+}
+
+h1{
+  color:var(--gold);
+  font-size:32px;
+  margin-bottom:10px;
+}
+
+p{
+  color:#ccc;
+  font-size:15px;
+  line-height:1.6;
+}
+
+a{
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 40px;
+  border:1px solid var(--gold);
+  border-radius:30px;
+  color:var(--gold);
+  text-decoration:none;
+  transition:.3s;
+}
+
+a:hover{
+  background:var(--gold);
+  color:#000;
+}
+
+/* ===== CONFETTI ===== */
+.confetti{
+  position:fixed;
+  top:-20px;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:radial-gradient(circle,#ffd87a,#d4af37);
+  pointer-events:none;
+  animation:fall linear forwards;
+  z-index:1;
+}
+
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+/* TOP RAIN CONFETTI */
+.confetti {
+  position: fixed;
+  top: -10px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ffd87a, #d4af37);
+  pointer-events: none;
+  z-index: 9999;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* CLICK BURST CONFETTI */
+.burst {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: gold;
+  pointer-events: none;
+  z-index: 10000;
+  animation: burst .8s ease-out forwards;
+}
+
+@keyframes burst {
+  to {
+    transform: translate(var(--x), var(--y)) scale(0);
+    opacity: 0;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="flash" id="flash"></div>
+
+<div class="card">
+  <img src="images/logo.png" alt="D6 Media Studio">
+  <h1>Thank You ✨</h1>
+  <p>Your enquiry has been successfully submitted.<br>
+     Our team will contact you shortly.</p>
+  <a href="index.html">Back to Home</a>
+</div>
+
+<audio id="shutter" src="audio/camera-shutter.mp3" preload="auto"></audio>
+
+<script>
+const shutter = document.getElementById("shutter");
+const flash   = document.getElementById("flash");
+
+/* ===== CONFETTI TOP DROP ===== */
+function confettiBurst(){
+  for(let i=0;i<40;i++){
+    const c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*window.innerWidth+"px";
+    c.style.animationDuration=(3+Math.random()*2)+"s";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5000);
+  }
+}
+
+/* ===== FLASH ===== */
+function cameraFlash(){
+  flash.style.opacity=1;
+  setTimeout(()=>flash.style.opacity=0,120);
+}
+
+/* ===== AUTO ON PAGE LOAD ===== */
+window.addEventListener("DOMContentLoaded",()=>{
+  confettiBurst();
+  cameraFlash();
+
+  /* autoplay safe method */
+  shutter.muted=true;
+  shutter.play().then(()=>{
+    shutter.muted=false;
+  }).catch(()=>{});
+});
+
+/* ===== FIRST USER INTERACTION → SOUND GUARANTEE ===== */
+window.addEventListener("click",()=>{
+  shutter.muted=false;
+  shutter.currentTime=0;
+  shutter.play();
+},{once:true});
+</script>
+<script>
+/* ===== PAGE LOAD CONFETTI (TOP) ===== */
+function rainConfetti(count = 40){
+  for(let i=0;i<count;i++){
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.style.left = Math.random() * window.innerWidth + "px";
+    c.style.animationDuration = (3 + Math.random() * 2) + "s";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5000);
+  }
+}
+window.addEventListener("load", rainConfetti);
+
+/* ===== CLICK SOUND + OPTIONAL CONFETTI BURST ===== */
+let soundPlayed = false;
+const shutter = document.getElementById("shutter");
+
+window.addEventListener("click", e => {
+
+  // 🔊 play sound only once
+  if(!soundPlayed){
+    shutter.currentTime = 0;
+    shutter.play().catch(()=>{});
+    soundPlayed = true;
+  }
+
+  // 🎊 optional burst
+  for(let i=0;i<12;i++){
+    const b = document.createElement("div");
+    b.className = "burst";
+    b.style.left = e.clientX + "px";
+    b.style.top  = e.clientY + "px";
+    b.style.setProperty("--x",(Math.random()-0.5)*160+"px");
+    b.style.setProperty("--y",(Math.random()-0.5)*160+"px");
+    document.body.appendChild(b);
+    setTimeout(()=>b.remove(),800);
+  }
+
+},{ once:true }); // 👈 first click only
+</script>
+
+</body>
+</html>
