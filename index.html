@@ -367,6 +367,185 @@ html{
   overflow:hidden;
 }
 
+/* ================= MOBILE FIX ================= */
+@media (max-width: 768px){
+
+  section{
+    padding: 90px 6%;
+  }
+
+  #about .about{
+    padding: 22px 18px;
+    border-radius: 16px;
+  }
+
+  #about p{
+    font-size: 15px;
+    line-height: 1.9;
+    text-align: left;
+  }
+
+  .title h2{
+    font-size: 28px;
+  }
+}
+@media (max-width: 768px){
+  body{
+    cursor: default;
+  }
+  .cursor-dot,
+  .cursor-ring,
+  .sparkle{
+    display:none !important;
+  }
+}
+@media (max-width:768px){
+  nav{
+    padding:14px 20px;
+  }
+  nav ul{
+    gap:16px;
+    font-size:14px;
+  }
+}
+@media(max-width:768px){
+  .parallax{
+    transform:none !important;
+  }
+}
+/* ===== FORCE FIX ABOUT SECTION ===== */
+#about{
+  transform: none !important;
+}
+
+@media(max-width:768px){
+  #about{
+    transform: none !important;
+    position: relative;
+    top: 0;
+  }
+}
+/* ===== MOBILE PARALLAX OFF ===== */
+@media(max-width:768px){
+  .parallax{
+    transform: none !important;
+  }
+}
+/* ===== ABOUT SECTION PREMIUM LOOK ===== */
+#about .about{
+  backdrop-filter: blur(6px);
+}
+@media(min-width:1024px){
+  #about{
+    padding-bottom: 45px;
+  }
+
+  #reviews{
+    padding-top: 45px;
+  }
+}
+@media(min-width:1024px){
+  .reviews-grid{
+    margin-top: 30px;
+  }
+}
+/* ===== DESKTOP ABOUT TEXT FIX ===== */
+@media(min-width:1024px){
+  #about .about{
+    max-width: 720px;   /* 👈 sweet spot */
+  }
+}
+@media(min-width:1024px){
+  #about p{
+    font-size: 17px;
+    line-height: 1.9;
+  }
+}
+#about p{
+  letter-spacing: 0.2px;
+}
+/* ===== FINAL DESKTOP ABOUT LAYOUT FIX ===== */
+@media (min-width:1024px){
+
+  #about{
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+
+  #about .about{
+    max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px 60px;
+  }
+
+  #about p{
+    font-size: 18px;
+    line-height: 1.85;
+  }
+}
+#about p{
+  text-align: left;
+}
+#about .about p{
+  margin-bottom: 22px;
+}
+/* ===== MOBILE SECTION GAP FIX ===== */
+@media (max-width: 768px){
+
+  section{
+    padding: 60px 6% !important;
+  }
+
+}
+@media (max-width: 768px){
+
+  #gallery{
+    padding-bottom: 30px !important;
+  }
+
+  #about{
+    padding-top: 30px !important;
+  }
+
+}
+@media (max-width: 768px){
+
+  #about{
+    padding-bottom: 30px !important;
+  }
+
+  #reviews{
+    padding-top: 30px !important;
+  }
+
+}
+@media (max-width: 768px){
+
+  #about .title{
+    margin-bottom: 20px;
+  }
+
+}
+/* ===== TYPOGRAPHY CALM FIX ===== */
+#about strong{
+  font-weight: 500;        /* instead of bold */
+  color: #f2f2f2;          /* soft white */
+}
+#about p{
+  font-weight: 400;
+}
+<strong class="key">cinematic wedding films</strong>
+#about .key{
+  font-weight: 600;
+  color: #ffffff;
+}
+@media(min-width:1024px){
+  #about p{
+    font-size: 17px;   /* 18 → 17 */
+    line-height: 1.8;
+  }
+}
 </style>
 </head>
 
@@ -498,32 +677,54 @@ html{
   </div>
 </section>
 
-<section id="about" class="reveal parallax">
+<section id="about" class="reveal">
   <div class="title">
     <h2>About</h2>
   </div>
 
   <div class="about">
-    <p>
-      <strong>D6 Media Studio</strong> is a premium wedding photography and cinematic videography studio
-      dedicated to preserving moments that matter. We specialize in <strong>traditional Tamil wedding photography</strong>,
-      <strong>luxury wedding videography</strong>, and <strong>cinematic wedding films</strong> that capture
-      real emotions, timeless rituals, and beautiful love stories.
-      <br><br>
-      From intimate wedding ceremonies to grand receptions, our experienced team focuses on storytelling,
-      natural expressions, and artistic visuals. Using professional cameras, creative lighting, and
-      cinematic techniques, we deliver high-quality <strong>wedding photos, highlight videos, and full-length wedding films</strong>
-      that couples can cherish for a lifetime.
-      <br><br>
-      Based in Tamil Nadu, D6 Media Studio also offers <strong>drone wedding shoots, event coverage, maternity shoots,
-      puberty ceremonies, and premium album designing</strong>. Every project is handled with passion,
-      precision, and a commitment to excellence, making us a trusted choice for couples looking for
-      elegant, emotional, and modern wedding photography and videography services. 
-      a premium wedding photography and videography studio in Aranthangi, Pudukkottai, specializing in cinematic wedding films, candid photography, and luxury wedding albums.
 
+    <p>
+      <strong>D6 Media Studio</strong> is a premium wedding photography and cinematic videography studio dedicated to preserving moments that live forever.
+      Rooted in tradition and elevated by creativity, we specialize in
+      <strong>traditional Tamil wedding photography</strong>,
+      <strong>candid photography</strong>,
+      <strong>luxury wedding videography</strong>, and
+      <strong>cinematic wedding films</strong> that capture real emotions, timeless rituals,
+      and unforgettable love stories.
     </p>
+
+    <p>
+      From intimate <strong>muhurtham moments</strong> to grand wedding receptions, our experienced team focuses on storytelling that feels natural,
+      elegant, and deeply emotional. With professional cameras, creative lighting,
+      <strong>drone technology</strong>, and cinematic filmmaking techniques,
+      we deliver high-quality <strong>wedding photos, highlight videos,
+      and full-length wedding films</strong> that couples cherish for a lifetime.
+    </p>
+
+    <p>
+      Based in <strong>Aranthangi, Pudukkottai, Tamil Nadu</strong>, D6 Media Studio offers a wide range of professional photography and videography services including
+      <strong>drone wedding shoots</strong>, <strong>candid photoshoots</strong>,
+      <strong>traditional wedding coverage</strong>, <strong>event photography</strong>,
+      <strong>maternity shoots</strong>, <strong>baby shoots</strong>,
+      <strong>puberty ceremonies</strong>, <strong>birthday shoots</strong>,
+      <strong>party photography</strong>, <strong>fashion and model photography</strong>,
+      <strong>runway photography</strong>, <strong>AI studio services</strong>,
+      and <strong>premium wedding album designing</strong>.
+    </p>
+
+    <p>
+      Every project we undertake is guided by passion, precision, and a commitment to excellence.
+      From luxury wedding albums to cinematic storytelling, we believe every frame should speak emotion,
+      every video should tell a story, and every memory should feel timeless.
+      <strong>D6 Media Studio</strong> stands as a trusted choice for couples and families looking for
+      elegant, emotional, and modern wedding photography and videography services in
+      <strong>Aranthangi and across Tamil Nadu</strong>.
+    </p>
+
   </div>
 </section>
+
 <section id="reviews" class="reveal">
   <div class="title">
     <h2>Google Reviews</h2>
@@ -788,13 +989,54 @@ document.querySelectorAll('nav a').forEach(link=>{
 });
 </script>
 <script>
+if(window.innerWidth > 768){
+
+  const parallaxSections = document.querySelectorAll('.parallax');
+
+  window.addEventListener('scroll', ()=>{
+    const scrollY = window.scrollY;
+
+    parallaxSections.forEach(section=>{
+      const speed = 0.15;
+      const offset = section.offsetTop;
+      const height = section.offsetHeight;
+
+      if(scrollY + window.innerHeight > offset &&
+         scrollY < offset + height){
+
+        const yPos = (scrollY - offset) * speed;
+        section.style.transform = `translateY(${yPos}px)`;
+      }
+    });
+  });
+
+}
+</script>
+
+<script>
+if(window.innerWidth < 768){
+  document.querySelectorAll('.parallax').forEach(el=>{
+    el.style.transform = 'none';
+  });
+}
+
+</script>
+<script>
+if(window.innerWidth < 768){
+  document.querySelectorAll('.parallax').forEach(el=>{
+    el.style.transform = 'none';
+  });
+}
+</script>
+<script>
+/*
 const parallaxSections = document.querySelectorAll('.parallax');
 
 window.addEventListener('scroll', ()=>{
   const scrollY = window.scrollY;
 
   parallaxSections.forEach(section=>{
-    const speed = 0.15; // 👈 slow luxury speed
+    const speed = 0.15;
     const offset = section.offsetTop;
     const height = section.offsetHeight;
 
@@ -806,6 +1048,7 @@ window.addEventListener('scroll', ()=>{
     }
   });
 });
+*/
 </script>
 <!-- LIGHTBOX -->
 <div id="img-lightbox">
