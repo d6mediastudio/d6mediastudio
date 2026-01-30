@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://d6mediastudio.in/</loc>
+    <lastmod>2026-01-30</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://d6mediastudio.in/#services</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://d6mediastudio.in/#gallery</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://d6mediastudio.in/#about</loc>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://d6mediastudio.in/#contact</loc>
+    <priority>0.80</priority>
+  </url>
+</urlset>
