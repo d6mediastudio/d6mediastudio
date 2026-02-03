@@ -499,6 +499,27 @@ html{
     margin-top: 30px;
   }
 }
+/* Reviews Bottom Center Fix */
+.reviews-bottom-center {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Idhu thaan rendu card-aiyum center panna pogudhu */
+    gap: 30px;
+    max-width: 1200px;
+    margin: 30px auto 0; /* Top-la konjam gap */
+}
+
+/* Ensure bottom cards match the grid card size */
+.reviews-bottom-center .review-card {
+    width: 350px; /* Grid-la ulla adhe width */
+    flex-grow: 0;
+}
+
+@media (max-width: 768px) {
+    .reviews-bottom-center .review-card {
+        width: 100%;
+    }
+}
 /* ===== DESKTOP ABOUT TEXT FIX ===== */
 @media(min-width:1024px){
   #about .about{
@@ -755,70 +776,62 @@ html{
 
   </div>
 </section>
-
 <section id="reviews" class="reveal">
   <div class="title">
-    <h2>Google Reviews</h2>
+    <h2>Client Stories</h2>
     <p style="color:#cfcfcf">⭐ 4.8 / 5 based on Google reviews</p>
   </div>
 
   <div class="reviews-grid">
-
-    <div class="review-row-1">
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>Luxury cinematic wedding photography. Truly premium work.</p>
-        <span>– Mani Kandan</span>
-      </div>
-
-      <div class="review-card">
-        <div class="stars">★★★★★</div>
-        <p>Best wedding photography studio in Aranthangi.</p>
-        <span>– Tasfeek Rahman</span>
-      </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"Best photography studio in Aranthangi. Cinematic video quality is outstanding and professional."</p>
+      <span>– AK Manikandan</span>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"A place where moments are transformed into beautiful, lasting memories. so visit the D6 media studio..."</p>
+      <span>– Roja</span>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"Excellent service and creative output. Best studio in Aranthangi area."</p>
+      <span>– MOHAMED TASFEEK RAHMAN</span>
     </div>
 
     <div class="review-card">
       <div class="stars">★★★★★</div>
-      <p>Perfect storytelling and natural candid moments.</p>
+      <p>"Good service friendly team Photos and videos came out well Satisfied with the work... ❤️"</p>
+      <span>– jenifer rejina</span>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"Perfect storytelling and natural candid moments. Luxury cinematic wedding photography."</p>
       <span>– Sabari Krishnan</span>
     </div>
-
     <div class="review-card">
       <div class="stars">★★★★★</div>
-      <p>Album quality and video output exceeded expectations.</p>
+      <p>"Album quality and video output exceeded expectations. On-time delivery."</p>
       <span>– Sanmathi Siva</span>
     </div>
+  </div>
 
+  <div class="reviews-bottom-center">
     <div class="review-card">
       <div class="stars">★★★★★</div>
-      <p>Professional team with cinematic vision.</p>
+      <p>"Outstanding work! Truly professional service with an artistic touch. Exceeded our expectations. 🤩✨"</p>
+      <span>– Dharani Prasanth</span>
+    </div>
+    <div class="review-card">
+      <div class="stars">★★★★★</div>
+      <p>"Highly recommended for traditional Tamil weddings. Professional team with cinematic vision."</p>
       <span>– Gowsi Satwika</span>
     </div>
-
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p>On-time delivery and premium output.</p>
-      <span>– Karthik</span>
-    </div>
-
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p>Highly recommended for traditional Tamil weddings.</p>
-      <span>– Priya</span>
-    </div>
-
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p>Cinematic video quality is outstanding.</p>
-      <span>– Naveen</span>
-    </div>
-
   </div>
 
   <div class="review-action">
     <a href="https://g.page/r/CWx96am988FxEAE/review" target="_blank">
-      ⭐ View & Write a Google Review
+      ⭐ Review us on Google
     </a>
   </div>
 </section>
