@@ -845,21 +845,17 @@ html{
   <div class="contact">
     <div class="contact-box">
 
-      <form action="https://api.web3forms.com/submit" method="POST">
+     <form action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="2df3120e-612d-4b2c-bffe-722ab8f708bc">
 
-        <input type="hidden" name="access_key" value="2df3120e-612d-4b2c-bffe-722ab8f708bc">
+    <input type="text" name="name" placeholder="Your Name" required>
+   
+    <input type="tel" name="phone" placeholder="Your Mobile Number" required>
 
-        <input type="hidden" name="subject" value="New Enquiry - D6 Media Studio">
-        <input type="hidden" name="from_name" value="D6 Media Studio Website">
-        <input type="hidden" name="redirect" value="https://d6mediastudio.in/thank-you.html">
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
 
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-
-        <button type="submit">Send Enquiry</button>
-
-      </form>
+    <button type="submit">Send Enquiry</button>
+</form>
 
     </div>
 
@@ -1059,3 +1055,4 @@ lb.onclick = (e) => { if(e.target !== lbImg) lb.classList.remove('active'); };
 </body>
 
 </html>
+
