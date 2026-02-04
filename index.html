@@ -28,6 +28,7 @@
   "openingHours": "Mo-Su 09:00-21:00"
 }
 </script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <style>
 :root{
   --black:#050505;
@@ -277,126 +278,73 @@ html{
   opacity:1;
   transform:translateY(0) scale(1);
 }
-
-/* ===== PARALLAX SECTIONS ===== */
-.parallax{
-  position:relative;
-  will-change: transform;
-  transition: transform .1s linear;
-}
-/* ===== HERO PARALLAX ===== */
-.hero video{
-  transform: scale(1.1);
-  transition: transform .15s linear;
-  will-change: transform;
-}
-
-.hero-parallax{
-  transition:
-    transform .15s linear,
-    opacity .15s linear;
-  will-change: transform, opacity;
-}
-/* === GOOGLE REVIEWS GRID (SAFE) === */
-.reviews-grid{
-  display:grid;
-  grid-template-columns:repeat(3, minmax(260px,1fr));
-  gap:34px;
-  max-width:1100px;
-  margin:60px auto 0;
-  justify-items:center;
+/* ===== REVIEW SECTION CLICK FIX ===== */
+#reviews {
+    position: relative;
+    padding: 120px 0;
+    background: url('images/d6-media-studio-aranthangi-rajendrapuram.webp') no-repeat center center/cover;
+    background-attachment: fixed;
+    min-height: 650px;
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    overflow: hidden;
 }
 
-.review-card{
-  width:100%;
-  max-width:340px;
-  background:#0e0e0e;
-  padding:32px 26px;
-  border-radius:22px;
-  border:1px solid rgba(212,175,55,.15);
-  text-align:center;
-
-  transition:
-    transform .35s cubic-bezier(.22,.61,.36,1),
-    box-shadow .35s ease;
+.reviews-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1;
 }
 
-.review-card:hover{
-  transform:translateY(-14px);
-  box-shadow:0 22px 55px rgba(212,175,55,.35);
+.swiper {
+    width: 100%;
+    z-index: 1;
+    padding-bottom: 0px;
+    /* Click-ah button-ku pass panna indha line mukkiyam */
+    pointer-events: none; 
 }
 
-.review-card .stars{
-  color:#d4af37;
-  letter-spacing:3px;
-  margin-bottom:12px;
+/* Slides and Arrows mattum thirumba click aagura madhiri mathuroam */
+.swiper-slide, .swiper-button-next, .swiper-button-prev {
+    pointer-events: auto;
 }
 
-.review-card p{
-  font-size:15px;
-  line-height:1.6;
-  color:#e6e6e6;
+.review-slide-content {
+    max-width: 850px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 25px;
 }
 
-.review-card span{
-  display:block;
-  margin-top:14px;
-  font-size:13px;
-  color:#bdbdbd;
+.stars-premium {
+    color: #ff3333;
+    font-size: 22px;
+    margin-bottom: 15px;
 }
 
-/* Row-1 center (2 cards) */
-.review-row-1{
-  grid-column:1 / -1;
-  display:flex;
-  gap:34px;
-  justify-content:center;
+.review-text-premium {
+    font-size: 24px;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-weight: 300;
 }
 
-/* CTA button */
-.review-action{
-  margin-top:60px;
-  text-align:center;
+.reviewer-name {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 36px;
+    text-transform: uppercase;
+    margin-top: 15px;
 }
 
-.review-action a{
-  display:inline-block;
-  padding:14px 34px;
-  border-radius:30px;
-  color:#d4af37;
-  border:1px solid rgba(212,175,55,.45);
-  transition:.3s ease;
-}
+/* Button Fix: Z-index 999 kuduthu mela thooki vechurukken */
 
-.review-action a:hover{
-  background:#d4af37;
-  color:#000;
-  box-shadow:0 0 30px rgba(212,175,55,.6);
-}
-
-/* Mobile safe */
-@media(max-width:900px){
-  .reviews-grid{
-    grid-template-columns:1fr;
-  }
-  .review-row-1{
-    flex-direction:column;
-  }
-}
-#img-lightbox{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.92);
-  display:none;
-  align-items:center;
-  justify-content:center;
- z-index: 2147483640; 
-}
-#img-lightbox img{
-  max-width:90%;
-  max-height:90%;
-  border-radius:24px;
-  box-shadow:0 0 60px rgba(212,175,55,.45);
+.review-action a:hover {
+    background: var(--gold);
+    color: #000;
 }
 
 #img-lightbox.active{
@@ -777,63 +725,116 @@ html{
   </div>
 </section>
 <section id="reviews" class="reveal">
-  <div class="title">
-    <h2>Client Stories</h2>
-    <p style="color:#cfcfcf">⭐ 4.9 / 5 based on Google reviews</p>
-  </div>
+    <div class="reviews-overlay"></div>
+    
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="review-slide-content">
+                    <div class="stars-premium">★★★★★</div>
+                    <p class="review-text-premium">"D6 Media Studio did a fantastic job for our birthday function. The photos, video, and especially the album were superb. They captured all the memories perfectly. Very happy with their service. Thank you team ❤️ Highly recommended ⭐⭐⭐⭐⭐"</p>
+                    <h3 class="reviewer-name">AK Manikandan</h3>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="review-slide-content">
+                    <div class="stars-premium">★★★★★</div>
+                    <p class="review-text-premium">"A place where moments are transformed into beautiful, lasting memories.so visit the D6 media studio for your events."</p>
+                    <h3 class="reviewer-name">Roja</h3>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="review-slide-content">
+                    <div class="stars-premium">★★★★★</div>
+                    <p class="review-text-premium">"Good service friendly team Photos and videos came out well Satisfied with the work... ❤️"</p>
+                    <h3 class="reviewer-name">Jenifer Rejina</h3>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="review-slide-content">
+                    <div class="stars-premium">★★★★★</div>
+                    <p class="review-text-premium">"Excellent service and creative output. Best studio in Aranthangi area."</p>
+                    <h3 class="reviewer-name">MOHAMED TASFEEK RAHMAN</h3>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="review-slide-content">
+                    <div class="stars-premium">★★★★★</div>
+                    <p class="review-text-premium">"Outstanding work! The creativity, editing, and attention to detail are exceptional. The final output exceeded our expectations. Truly professional service with an artistic touch. Would definitely recommend to friends and family.🤩✨"</p>
+                    <h3 class="reviewer-name">Dharani Prasanth</h3>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="review-slide-content">
+                    <div class="stars-premium">★★★★★</div>
+                    <p class="review-text-premium">"Perfect storytelling and natural candid moments. Luxury cinematic wedding photography."</p>
+                    <h3 class="reviewer-name">Sabari Krishnan</h3>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="review-slide-content">
+                    <div class="stars-premium">★★★★★</div>
+                    <p class="review-text-premium">"Album quality and video output exceeded expectations. On-time delivery."</p>
+                    <h3 class="reviewer-name">Sanmathi Siva</h3>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="review-slide-content">
+                    <div class="stars-premium">★★★★★</div>
+                    <p class="review-text-premium">"Highly recommended for traditional Tamil weddings. Professional team with cinematic vision."</p>
+                    <h3 class="reviewer-name">Gowsi Satwika</h3>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="review-slide-content">
+                    <div class="stars-premium">★★★★★</div>
+                    <p class="review-text-premium">"The best place for cinematic wedding films. Their editing skills are on another level."</p>
+                    <h3 class="reviewer-name">Arun Rithvik</h3>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="review-slide-content">
+                    <div class="stars-premium">★★★★★</div>
+                    <p class="review-text-premium">"Very patient and friendly photographers. They captured every small detail of our wedding."</p>
+                    <h3 class="reviewer-name">Senthil Kumar</h3>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="review-slide-content">
+                    <div class="stars-premium">★★★★★</div>
+                    <p class="review-text-premium">"Premium quality albums at a reasonable price. Highly satisfied with D6 Media Studio."</p>
+                    <h3 class="reviewer-name">Raju Tamilan</h3>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="review-slide-content">
+                    <div class="stars-premium">★★★★★</div>
+                    <p class="review-text-premium">"Excellent response and timely delivery of photos. Best service in Pudukkottai district."</p>
+                    <h3 class="reviewer-name">NAINA MOHAMED</h3>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="review-slide-content">
+                    <div class="stars-premium">★★★★★</div>
+                    <p class="review-text-premium">"Their drone shots and outdoor couple portraits are simply breathtaking. Must try!"</p>
+                    <h3 class="reviewer-name">Rajesh</h3>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="review-slide-content">
+                    <div class="stars-premium">★★★★★</div>
+                    <p class="review-text-premium">"Top notch quality and very professional behavior. D6 Media is the go-to for all events."</p>
+                    <h3 class="reviewer-name">Karthick</h3>
+                </div>
+            </div>
 
-  <div class="reviews-grid">
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p>"Best photography studio in Aranthangi. Cinematic video quality is outstanding and professional."</p>
-      <span>– AK Manikandan</span>
-    </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p>"A place where moments are transformed into beautiful, lasting memories. so visit the D6 media studio..."</p>
-      <span>– Roja</span>
-    </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p>"Excellent service and creative output. Best studio in Aranthangi area."</p>
-      <span>– MOHAMED TASFEEK RAHMAN</span>
-    </div>
+        </div>
 
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p>"Good service friendly team Photos and videos came out well Satisfied with the work... ❤️"</p>
-      <span>– jenifer rejina</span>
-    </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p>"Perfect storytelling and natural candid moments. Luxury cinematic wedding photography."</p>
-      <span>– Sabari Krishnan</span>
-    </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p>"Album quality and video output exceeded expectations. On-time delivery."</p>
-      <span>– Sanmathi Siva</span>
-    </div>
-  </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        </div>
+        
 
-  <div class="reviews-bottom-center">
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p>"Outstanding work! Truly professional service with an artistic touch. Exceeded our expectations. 🤩✨"</p>
-      <span>– Dharani Prasanth</span>
-    </div>
-    <div class="review-card">
-      <div class="stars">★★★★★</div>
-      <p>"Highly recommended for traditional Tamil weddings. Professional team with cinematic vision."</p>
-      <span>– Gowsi Satwika</span>
-    </div>
-  </div>
-
-  <div class="review-action">
-    <a href="https://g.page/r/CWx96am988FxEAE/review" target="_blank">
-      ⭐ Review us on Google
-    </a>
-  </div>
 </section>
 
 <section id="contact" class="reveal parallax">
@@ -845,7 +846,7 @@ html{
   <div class="contact">
     <div class="contact-box">
 
-     <form action="https://api.web3forms.com/submit" method="POST">
+      <form action="https://api.web3forms.com/submit" method="POST">
     <input type="hidden" name="access_key" value="2df3120e-612d-4b2c-bffe-722ab8f708bc">
 
     <input type="text" name="name" placeholder="Your Name" required>
@@ -1052,7 +1053,21 @@ document.querySelectorAll('.lb-close, #lb-img').forEach(el => {
 lbClose.onclick = () => lb.classList.remove('active');
 lb.onclick = (e) => { if(e.target !== lbImg) lb.classList.remove('active'); };
 </script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script>
+  var swiper = new Swiper(".mySwiper", {
+    loop: true,
+    speed: 800,
+    autoplay: {
+      delay: 4000,
+      disableOnInteraction: false,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
 </body>
-
 </html>
-
