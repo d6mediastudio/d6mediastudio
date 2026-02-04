@@ -557,6 +557,48 @@ html{
     line-height: 1.8;
   }
 }
+/* LIGHTBOX BASE STYLE - இதைக் கட்டாயம் சேர்க்கவும் */
+#img-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 10002;
+  display: none; /* இதுதான் 'X' குறியீட்டை மறைக்கும் */
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+}
+
+/* ஆக்டிவ் ஆகும் போது மட்டும் தெரியும் */
+#img-lightbox.active {
+  display: flex;
+}
+
+#lb-img {
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 8px;
+  box-shadow: 0 0 50px rgba(212, 175, 55, 0.3);
+}
+
+.lb-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 50px;
+  color: #d4af37;
+  cursor: pointer;
+  line-height: 1;
+  transition: 0.3s;
+}
+
+.lb-close:hover {
+  transform: scale(1.2);
+  color: #ffffff;
+}
 </style>
 </head>
 
