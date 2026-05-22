@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vizhi Veekura - Project File & Instructions | D6 Media Studio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-in-out;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: -webkit-linear-gradient(#00d2ff, #3a7bd5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        header p {
+            color: #a0a0a0;
+            font-size: 1.1rem;
+        }
+        .card {
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            border: 1px solid #333;
+        }
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-top: 0;
+            color: #f0f0f0;
+            font-size: 1.5rem;
+        }
+        h3 {
+            color: #e0e0e0;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        ul {
+            line-height: 1.8;
+            color: #cccccc;
+            padding-left: 20px;
+        }
+        
+        /* New Prompt Structure Styling */
+        .prompt-container {
+            margin-bottom: 40px;
+        }
+        .prompt-number {
+            color: #888;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .prompt-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+        details {
+            background: transparent;
+            border: none;
+        }
+        summary {
+            padding: 10px 0;
+            font-weight: 500;
+            cursor: pointer;
+            color: #e0e0e0;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            transition: color 0.2s;
+        }
+        summary:hover {
+            color: #00d2ff;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        summary::before {
+            content: "▶";
+            font-size: 0.8rem;
+            color: #555;
+            margin-right: 10px;
+            transition: transform 0.2s, color 0.2s;
+        }
+        details[open] summary::before {
+            transform: rotate(90deg);
+            color: #00d2ff;
+        }
+        .prompt-text {
+            padding: 15px;
+            margin-top: 10px;
+            background-color: #252525;
+            color: #dcdcdc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            border-radius: 8px;
+            border-left: 3px solid #00d2ff;
+            white-space: pre-wrap;
+        }
+
+        .highlight-box {
+            background-color: rgba(229, 46, 113, 0.1);
+            border-left: 4px solid #e52e71;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 0 8px 8px 0;
+            color: #e0e0e0;
+        }
+        .btn-download {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(90deg, #ff8a00, #e52e71);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: transform 0.2s, opacity 0.2s;
+            box-shadow: 0 4px 15px rgba(229, 46, 113, 0.4);
+            margin-top: 20px;
+        }
+        .btn-download:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        .footer a {
+            color: #00d2ff;
+            text-decoration: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Vizhi Veekura - Lyric Video</h1>
+        <p>Project File and Instructions by <strong>D6 Media Studio</strong></p>
+    </header>
+
+    <div class="card">
+        <h2>📦 What's Included?</h2>
+        <ul>
+            <li><strong>After Effects Project File</strong> (.aep) & <strong>Photoshop files</strong> (.psd)</li>
+            <li>Organized Compositions, Layers & Fonts list</li>
+            <li>AI prompt guide (Gemini / Nano Banana compatible)</li>
+        </ul>
+        <div class="highlight-box">
+            <strong>🔌 Plugins Used (Not necessary / Not included):</strong><br>
+            • Optical Flares & Looks<br>
+            <em>(Delete these effects if you don’t have them already.)</em>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>🎨 AI Image Prompt Guide</h2>
+        <p style="color: #aaaaaa; margin-bottom: 25px;">Use a New Chat for each image generation. Retry image generation until you're satisfied with the results.</p>
+
+        <div class="prompt-container">
+            <div class="prompt-number">1</div>
+            <img src="image1.jpg" alt="Reference Image 1" class="prompt-image">
+            <details>
+                <summary>Upload your image and paste this prompt.</summary>
+ <div class="prompt-box">
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                <div class="prompt-text">Create a new image of this person
+{
+  "meta": {
+    "image_quality": "High",
+    "image_type": "Cinematic Screenshot",
+    "resolution_estimation": "1920x1080",
+    "file_characteristics": {
+      "compression_artifacts": "Low",
+      "noise_level": "Medium",
+      "lens_type_estimation": "50mm or 85mm (Portrait lens)"
+    }
+  },
+  "global_context": {
+    "scene_description": "Create a new image of this person with matching face details and hairstyle. A medium shot of a young man walking forward through a dimly lit, hazy auditorium or hall, smiling confidently at the camera. He is positioned centrally. Behind him, a blurred crowd of people stands on a raised platform or stage area, appearing to watch or applaud. Rows of dark seating line the left and right foregrounds, creating a pathway (aisle) the subject is moving through. The lighting is dramatic and atmospheric, with a strong, warm backlight source (possibly a window or stage light) on the right creating a lens flare and rim-lighting the subject's hair and shoulder.",
+    "environment_type": "Indoor/Auditorium/Hall",
+    "time_of_day": "Indiscernible (Indoor artificial or window light)",
+    "weather_atmosphere": "Hazy/Smoky/Celebratory",
+    "lighting": {
+      "source": "Strong Backlight/Side-light",
+      "direction": "Back-Right",
+      "quality": "Diffused/Hazy with Flare",
+      "color_temperature": "Warm/Golden"
+    },
+    "color_palette": {
+      "dominant_hex_estimates": [
+        "#1A1A1D",
+        "#3B2E2A",
+        "#8B4513",
+        "#2C3E50",
+        "#E8D5B5"
+      ],
+      "accent_colors": [
+        "#A93226",
+        "#D6DBDF",
+        "#F1C40F"
+      ],
+      "contrast_level": "Medium"
+    }
+  },
+  "composition": {
+    "camera_angle": "Eye-level",
+    "framing": "Medium Shot (Waist-up)",
+    "depth_of_field": "Shallow (Subject sharp, background heavy bokeh)",
+    "focal_point": "Subject's Face",
+    "symmetry_type": "Approximate Central Symmetry (Subject centered)",
+    "rule_of_thirds_alignment": "Eyes align with top third line"
+  },
+  "objects": [
+    {
+      "id": "obj_subject",
+      "label": "Male Subject",
+      "category": "Person",
+      "location": {
+        "relative_position": "Center",
+        "bounding_box_percentage": {
+          "x": 0.3,
+          "y": 0.1,
+          "width": 0.45,
+          "height": 0.9
+        }
+      },
+      "dimensions_relative": "Large",
+      "distance_from_camera": "Near-Mid",
+      "pose_orientation": "Facing forward, slight body turn to right, walking",
+      "material": "Organic",
+      "surface_properties": {
+        "texture": "Skin, Hair",
+        "reflectivity": "Low (Natural skin oils)",
+        "micro_details": "Stubble beard, styled quiff hair, smile lines",
+        "wear_state": "N/A"
+      },
+      "color_details": {
+        "base_color_hex": "#8D6E63",
+        "secondary_colors": [
+          "#1B1B1B"
+        ],
+        "gradient_or_pattern": "Skin tones"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "Face in partial shadow (butterfly/loop lighting), strong rim light on left hair and right shoulder",
+        "highlight_zones": "Forehead, nose bridge, left cheekbone",
+        "translucency": "Subsurface scattering on ears"
+      },
+      "text_content": null,
+      "relationships": [
+        {
+          "type": "wearing",
+          "target_object_id": "obj_jacket"
+        },
+        {
+          "type": "wearing",
+          "target_object_id": "obj_shirt"
+        },
+        {
+          "type": "wearing",
+          "target_object_id": "obj_necklace"
+        },
+        {
+          "type": "in_front_of",
+          "target_object_id": "obj_crowd"
+        }
+      ]
+    },
+    {
+      "id": "obj_jacket",
+      "label": "Plaid Jacket",
+      "category": "Clothing",
+      "location": {
+        "relative_position": "On Subject",
+        "bounding_box_percentage": {
+          "x": 0.3,
+          "y": 0.45,
+          "width": 0.45,
+          "height": 0.55
+        }
+      },
+      "dimensions_relative": "Medium",
+      "distance_from_camera": "Near-Mid",
+      "pose_orientation": "Worn",
+      "material": "Flannel/Denim mix",
+      "surface_properties": {
+        "texture": "Woven fabric",
+        "reflectivity": "Low",
+        "micro_details": "Button flaps, collar structure, plaid pattern",
+        "wear_state": "Casual"
+      },
+      "color_details": {
+        "base_color_hex": "#283747",
+        "secondary_colors": [
+          "#943126",
+          "#5D6D7E"
+        ],
+        "gradient_or_pattern": "Dark blue/grey base with red and lighter blue plaid lines"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "Self-shadows in folds",
+        "highlight_zones": "Shoulders, collar",
+        "translucency": "None"
+      },
+      "text_content": null,
+      "relationships": [
+        {
+          "type": "over",
+          "target_object_id": "obj_shirt"
+        }
+      ]
+    },
+    {
+      "id": "obj_shirt",
+      "label": "White Shirt",
+      "category": "Clothing",
+      "location": {
+        "relative_position": "Center Chest",
+        "bounding_box_percentage": {
+          "x": 0.48,
+          "y": 0.48,
+          "width": 0.1,
+          "height": 0.5
+        }
+      },
+      "dimensions_relative": "Small visible area",
+      "distance_from_camera": "Near-Mid",
+      "pose_orientation": "Worn",
+      "material": "Cotton",
+      "surface_properties": {
+        "texture": "Smooth",
+        "reflectivity": "Medium (Bright white)",
+        "micro_details": "Collar, button placket",
+        "wear_state": "Clean"
+      },
+      "color_details": {
+        "base_color_hex": "#FDFEFE",
+        "secondary_colors": [],
+        "gradient_or_pattern": "Solid"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "None",
+        "highlight_zones": "Chest area",
+        "translucency": "Low"
+      },
+      "text_content": null,
+      "relationships": []
+    },
+    {
+      "id": "obj_necklace",
+      "label": "Silver Necklace",
+      "category": "Jewelry",
+      "location": {
+        "relative_position": "Subject Neck",
+        "bounding_box_percentage": {
+          "x": 0.5,
+          "y": 0.55,
+          "width": 0.05,
+          "height": 0.1
+        }
+      },
+      "dimensions_relative": "Tiny",
+      "distance_from_camera": "Near-Mid",
+      "pose_orientation": "Hanging",
+      "material": "Metal (Silver)",
+      "surface_properties": {
+        "texture": "Metallic",
+        "reflectivity": "High",
+        "micro_details": "Chain links, small rectangular pendant",
+        "wear_state": "Good"
+      },
+      "color_details": {
+        "base_color_hex": "#BDC3C7",
+        "secondary_colors": [],
+        "gradient_or_pattern": "None"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "None",
+        "highlight_zones": "Glint on pendant",
+        "translucency": "None"
+      },
+      "text_content": null,
+      "relationships": []
+    },
+    {
+      "id": "obj_crowd",
+      "label": "Background Audience",
+      "category": "People",
+      "location": {
+        "relative_position": "Background",
+        "bounding_box_percentage": {
+          "x": 0.0,
+          "y": 0.15,
+          "width": 1.0,
+          "height": 0.5
+        }
+      },
+      "dimensions_relative": "Small (due to distance)",
+      "distance_from_camera": "Far",
+      "pose_orientation": "Standing, various poses",
+      "material": "Varied",
+      "surface_properties": {
+        "texture": "Blurred",
+        "reflectivity": "Low",
+        "micro_details": "Indistinguishable facial features",
+        "wear_state": "N/A"
+      },
+      "color_details": {
+        "base_color_hex": "#564334",
+        "secondary_colors": [
+          "#FFFFFF",
+          "#000000"
+        ],
+        "gradient_or_pattern": "Mixed clothing colors"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "Soft shadows",
+        "highlight_zones": "Rim lighting on heads",
+        "translucency": "None"
+      },
+      "text_content": null,
+      "relationships": [
+        {
+          "type": "behind",
+          "target_object_id": "obj_subject"
+        }
+      ]
+    },
+    {
+      "id": "obj_seats_left",
+      "label": "Auditorium Seats Left",
+      "category": "Furniture",
+      "location": {
+        "relative_position": "Bottom-Left",
+        "bounding_box_percentage": {
+          "x": 0.0,
+          "y": 0.6,
+          "width": 0.25,
+          "height": 0.4
+        }
+      },
+      "dimensions_relative": "Medium",
+      "distance_from_camera": "Near",
+      "pose_orientation": "Rows facing back",
+      "material": "Leather/Vinyl/Fabric",
+      "surface_properties": {
+        "texture": "Smooth/Matte",
+        "reflectivity": "Low",
+        "micro_details": "Curved backrests",
+        "wear_state": "Used"
+      },
+      "color_details": {
+        "base_color_hex": "#101010",
+        "secondary_colors": [],
+        "gradient_or_pattern": "None"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "Deep shadows",
+        "highlight_zones": "Edges catching ambient light",
+        "translucency": "None"
+      },
+      "text_content": null,
+      "relationships": []
+    },
+    {
+      "id": "obj_seats_right",
+      "label": "Auditorium Seats Right",
+      "category": "Furniture",
+      "location": {
+        "relative_position": "Bottom-Right",
+        "bounding_box_percentage": {
+          "x": 0.75,
+          "y": 0.6,
+          "width": 0.25,
+          "height": 0.4
+        }
+      },
+      "dimensions_relative": "Medium",
+      "distance_from_camera": "Near",
+      "pose_orientation": "Rows facing back",
+      "material": "Leather/Vinyl",
+      "surface_properties": {
+        "texture": "Smooth/Matte",
+        "reflectivity": "Low",
+        "micro_details": "Out of focus",
+        "wear_state": "Used"
+      },
+      "color_details": {
+        "base_color_hex": "#101010",
+        "secondary_colors": [],
+        "gradient_or_pattern": "None"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "Deep shadows",
+        "highlight_zones": "Edges",
+        "translucency": "None"
+      },
+      "text_content": null,
+      "relationships": []
+    }
+  ],
+  "background_details": {
+    "texture": "Atmospheric haze, soft bokeh",
+    "patterns": "Vertical folds of curtains in upper background",
+    "lighting_behavior": "Strong bloom from right, diffuse glow",
+    "additional_elements": [
+      "Curtains/Drapes",
+      "Possible stage structure"
+    ]
+  },
+  "foreground_elements": {
+    "particles": "Visible noise/grain in shadows, atmospheric dust in light beams",
+    "artifacts": "Lens flare/Bloom on right side"
+  },
+  "reconstruction_notes": {
+    "mandatory_elements_for_recreation": [
+      "Same character face and hair (quiff, stubble)",
+      "Plaid jacket with denim details",
+      "White open collar shirt",
+      "Silver necklace with rectangular pendant",
+      "Smiling expression",
+      "Blurred background crowd",
+      "Aisle perspective with seats on sides",
+      "Warm backlight/lens flare from right"
+    ],
+    "sensitivity_factors": "The facial resemblance to the specific character is paramount. The lighting needs to capture that specific hazy, 'music video' aesthetic.",
+    "ambiguities": "Specific details of the crowd are indistinguishable. The exact type of venue is ambiguous but suggests a theater or hall."
+  }
+}
+            </details><
+        </div>
+
+        <div class="prompt-container">
+            <div class="prompt-number">2</div>
+            <img src="image2.jpg" alt="Reference Image 2" class="prompt-image">
+            <details>
+                <summary>Upload your image and paste this prompt.</summary>
+ <div class="prompt-box">
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+                
+<div class="prompt-text">Create an image including the details with the uploaded girl image
+{
+  "meta": {
+    "image_quality": "High",
+    "image_type": "Cinematic Screenshot",
+    "resolution_estimation": "1920x1080",
+    "file_characteristics": {
+      "compression_artifacts": "Low",
+      "noise_level": "Medium",
+      "lens_type_estimation": "50mm or 85mm (Portrait lens)"
+    }
+  },
+  "global_context": {
+    "scene_description": "Create a new image of this person with matching face details and hairstyle. A medium close-up of a young woman smiling radiantly in a dimly lit, atmospheric club or event venue. She is positioned centrally, slightly angled to the left. The lighting is warm and hazy, with strong backlighting creating a glowing rim effect around her curly hair. In the background, there is a lively scene with other people dancing or standing. To the right, a bright marquee-style sign with text is visible, along with warm bulb lights. The background is soft and out of focus (bokeh), emphasizing the subject.",
+    "environment_type": "Indoor/Club/Event Venue",
+    "time_of_day": "Night (Artificial lighting)",
+    "weather_atmosphere": "Hazy/Smoky/Festive",
+    "lighting": {
+      "source": "Backlit/Rim-lighting + Ambient Warm",
+      "direction": "Behind and Top",
+      "quality": "Soft, Diffused, Glowing",
+      "color_temperature": "Warm/Amber (approx 3000K)"
+    },
+    "color_palette": {
+      "dominant_hex_estimates": [
+        "#1B2631",
+        "#8E44AD",
+        "#D35400",
+        "#F1C40F",
+        "#5D4037"
+      ],
+      "accent_colors": [
+        "#E67E22",
+        "#FDFEFE",
+        "#3498DB"
+      ],
+      "contrast_level": "High (due to backlighting)"
+    }
+  },
+  "composition": {
+    "camera_angle": "Eye-level",
+    "framing": "Medium Close-up (Chest-up)",
+    "depth_of_field": "Shallow (Subject sharp, background blurred)",
+    "focal_point": "Subject's Face",
+    "symmetry_type": "None",
+    "rule_of_thirds_alignment": "Subject's eyes near top horizontal third"
+  },
+  "objects": [
+    {
+      "id": "obj_main_subject",
+      "label": "Female Subject",
+      "category": "Person",
+      "location": {
+        "relative_position": "Center",
+        "bounding_box_percentage": {
+          "x": 0.25,
+          "y": 0.15,
+          "width": 0.45,
+          "height": 0.85
+        }
+      },
+      "dimensions_relative": "Large",
+      "distance_from_camera": "Near",
+      "pose_orientation": "Facing front, head turned slightly left, smiling",
+      "material": "Organic",
+      "surface_properties": {
+        "texture": "Skin, Curly Hair",
+        "reflectivity": "Medium (Skin highlights)",
+        "micro_details": "Flyaway hairs illuminated by backlight, bright smile, defined eyebrows",
+        "wear_state": "N/A"
+      },
+      "color_details": {
+        "base_color_hex": "#A1887F",
+        "secondary_colors": [
+          "#1B1B1B"
+        ],
+        "gradient_or_pattern": "Skin tones"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "Soft shadows on face",
+        "highlight_zones": "Hair halo, cheeks, nose",
+        "translucency": "Hair strands catching light"
+      },
+      "text_content": null,
+      "relationships": [
+        {
+          "type": "wearing",
+          "target_object_id": "obj_top"
+        },
+        {
+          "type": "wearing",
+          "target_object_id": "obj_necklace"
+        },
+        {
+          "type": "wearing",
+          "target_object_id": "obj_earring"
+        },
+        {
+          "type": "in_front_of",
+          "target_object_id": "obj_bg_sign"
+        }
+      ]
+    },
+    {
+      "id": "obj_top",
+      "label": "Denim Shirt/Dress",
+      "category": "Clothing",
+      "location": {
+        "relative_position": "On Subject",
+        "bounding_box_percentage": {
+          "x": 0.25,
+          "y": 0.55,
+          "width": 0.45,
+          "height": 0.45
+        }
+      },
+      "dimensions_relative": "Medium",
+      "distance_from_camera": "Near",
+      "pose_orientation": "Worn",
+      "material": "Denim/Cotton",
+      "surface_properties": {
+        "texture": "Woven",
+        "reflectivity": "Low",
+        "micro_details": "Contrast stitching (orange/gold), collar, button placket",
+        "wear_state": "New"
+      },
+      "color_details": {
+        "base_color_hex": "#154360",
+        "secondary_colors": [
+          "#D35400"
+        ],
+        "gradient_or_pattern": "Solid dark blue with orange stitching"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "Self-shadows",
+        "highlight_zones": "Shoulders",
+        "translucency": "None"
+      },
+      "text_content": null,
+      "relationships": []
+    },
+    {
+      "id": "obj_necklace",
+      "label": "Butterfly Pendant Necklace",
+      "category": "Jewelry",
+      "location": {
+        "relative_position": "Subject Neck",
+        "bounding_box_percentage": {
+          "x": 0.44,
+          "y": 0.62,
+          "width": 0.08,
+          "height": 0.1
+        }
+      },
+      "dimensions_relative": "Small",
+      "distance_from_camera": "Near",
+      "pose_orientation": "Hanging",
+      "material": "Metal/Enamel",
+      "surface_properties": {
+        "texture": "Smooth",
+        "reflectivity": "High",
+        "micro_details": "Butterfly or wing shape",
+        "wear_state": "Good"
+      },
+      "color_details": {
+        "base_color_hex": "#B03A2E",
+        "secondary_colors": [
+          "#F1C40F"
+        ],
+        "gradient_or_pattern": "Red and Gold"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "None",
+        "highlight_zones": "Specular reflection",
+        "translucency": "None"
+      },
+      "text_content": null,
+      "relationships": []
+    },
+    {
+      "id": "obj_earring",
+      "label": "Hoop Earring",
+      "category": "Jewelry",
+      "location": {
+        "relative_position": "Subject Left Ear",
+        "bounding_box_percentage": {
+          "x": 0.52,
+          "y": 0.36,
+          "width": 0.01,
+          "height": 0.02
+        }
+      },
+      "dimensions_relative": "Tiny",
+      "distance_from_camera": "Near",
+      "pose_orientation": "Hanging",
+      "material": "Gold Metal",
+      "surface_properties": {
+        "texture": "Metallic",
+        "reflectivity": "High",
+        "micro_details": "Small hoop",
+        "wear_state": "Good"
+      },
+      "color_details": {
+        "base_color_hex": "#F1C40F",
+        "secondary_colors": [],
+        "gradient_or_pattern": "Solid"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "None",
+        "highlight_zones": "Glint",
+        "translucency": "None"
+      },
+      "text_content": null,
+      "relationships": []
+    },
+    {
+      "id": "obj_bg_woman_left",
+      "label": "Background Woman (Left)",
+      "category": "Person",
+      "location": {
+        "relative_position": "Background Left",
+        "bounding_box_percentage": {
+          "x": 0.1,
+          "y": 0.5,
+          "width": 0.15,
+          "height": 0.5
+        }
+      },
+      "dimensions_relative": "Small",
+      "distance_from_camera": "Mid",
+      "pose_orientation": "Facing right",
+      "material": "Organic/Textile",
+      "surface_properties": {
+        "texture": "Blurred",
+        "reflectivity": "Low",
+        "micro_details": "Light blue top",
+        "wear_state": "N/A"
+      },
+      "color_details": {
+        "base_color_hex": "#85C1E9",
+        "secondary_colors": [
+          "#5D4037"
+        ],
+        "gradient_or_pattern": "Solid"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "None visible",
+        "highlight_zones": "Shoulder",
+        "translucency": "None"
+      },
+      "text_content": null,
+      "relationships": []
+    },
+    {
+      "id": "obj_bg_sign",
+      "label": "Marquee Sign",
+      "category": "Signage",
+      "location": {
+        "relative_position": "Background Right",
+        "bounding_box_percentage": {
+          "x": 0.6,
+          "y": 0.4,
+          "width": 0.4,
+          "height": 0.2
+        }
+      },
+      "dimensions_relative": "Medium",
+      "distance_from_camera": "Far",
+      "pose_orientation": "Horizontal",
+      "material": "Plastic/Light",
+      "surface_properties": {
+        "texture": "Smooth/Glowing",
+        "reflectivity": "High (Emissive)",
+        "micro_details": "Text and bulbs",
+        "wear_state": "Good"
+      },
+      "color_details": {
+        "base_color_hex": "#FFFFFF",
+        "secondary_colors": [
+          "#C0392B"
+        ],
+        "gradient_or_pattern": "White background with red text"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "Source of light",
+        "highlight_zones": "Bulbs",
+        "translucency": "High (Transmissive)"
+      },
+      "text_content": {
+        "raw_text": "w playing - Vizhi Vee",
+        "font_style": "Serif",
+        "font_weight": "Regular",
+        "text_case": "Lowercase with Capitalized Names",
+        "alignment": "Left",
+        "color_hex": "#C0392B"
+      },
+      "relationships": [
+        {
+          "type": "above",
+          "target_object_id": "obj_bg_lights"
+        }
+      ]
+    },
+    {
+      "id": "obj_bg_lights",
+      "label": "String Lights/Bulbs",
+      "category": "Lighting",
+      "location": {
+        "relative_position": "Background Right",
+        "bounding_box_percentage": {
+          "x": 0.6,
+          "y": 0.55,
+          "width": 0.4,
+          "height": 0.1
+        }
+      },
+      "dimensions_relative": "Small elements",
+      "distance_from_camera": "Far",
+      "pose_orientation": "Strung horizontally",
+      "material": "Glass",
+      "surface_properties": {
+        "texture": "Glowing",
+        "reflectivity": "Source",
+        "micro_details": "Round bulbs",
+        "wear_state": "Good"
+      },
+      "color_details": {
+        "base_color_hex": "#F4D03F",
+        "secondary_colors": [],
+        "gradient_or_pattern": "None"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "Source",
+        "highlight_zones": "Source",
+        "translucency": "High"
+      },
+      "text_content": null,
+      "relationships": []
+    }
+  ],
+  "background_details": {
+    "texture": "Soft bokeh, smoky atmosphere",
+    "patterns": "Diamond/Geometric lattice pattern on far left wall (similar to first image)",
+    "lighting_behavior": "Strong bloom from lights on the right, dark on the left",
+    "additional_elements": [
+      "Silhouetted figures dancing",
+      "General crowd ambience"
+    ]
+  },
+  "foreground_elements": {
+    "particles": "Atmospheric haze/smoke illuminated by backlight",
+    "artifacts": "Lens flare/Bloom around hair and light sources"
+  },
+  "reconstruction_notes": {
+    "mandatory_elements_for_recreation": [
+      "Same female character with curly hair and smile",
+      "Dark blue denim top with contrast stitching",
+      "Butterfly necklace",
+      "Warm backlit atmosphere with hair halo",
+      "Blurred background crowd",
+      "Sign with text 'playing - Vizhi Vee'"
+    ],
+    "sensitivity_factors": "The joy and expression of the subject are central. The lighting on the hair (rim light) is essential for the look.",
+    "ambiguities": "The beginning of the text on the sign is cut off ('w playing' suggests 'Now playing'). The exact details of the background crowd are intentionally blurred."
+  }
+}
+Create an image</div>
+            </details>
+        </div>
+
+        <div class="prompt-container">
+            <div class="prompt-number">3</div>
+            <img src="image3.jpg" alt="Reference Image 3" class="prompt-image">
+            <details>
+                <summary>Upload your image and paste this prompt.</summary>
+<div class="prompt-box">
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+
+                <div class="prompt-text">Create a new image with these two persons in the reference images
+{
+  "meta": {
+    "image_quality": "High",
+    "image_type": "Cinematic Still / Photo",
+    "resolution_estimation": "Approx. 1920x1080 (16:9 Aspect Ratio)",
+    "file_characteristics": {
+      "compression_artifacts": "Low",
+      "noise_level": "Medium (Film Grain)",
+      "lens_type_estimation": "35mm or 50mm Prime, Fast Aperture"
+    }
+  },
+  "global_context": {
+    "scene_description": "A cinematic medium shot of a young man and woman looking at each other in a dimly lit social environment, possibly a club or event space. The man is on the left in profile, wearing a plaid jacket. The woman is on the right, smiling slightly, facing him. Behind them is a textured wall with a geometric relief pattern and several blurred figures, one of whom appears to be clapping. The lighting is low and warm, creating a moody, intimate atmosphere.",
+    "environment_type": "Indoor / Social Venue",
+    "time_of_day": "Night / Interior Artificial Lighting",
+    "weather_atmosphere": "Intimate, warm, hazy, cinematic",
+    "lighting": {
+      "source": "Artificial / Ambient interior lamps",
+      "direction": "Side lighting and soft overhead glow",
+      "quality": "Soft with high falloff, creating deep shadows",
+      "color_temperature": "Warm (approx. 2700K - 3000K)"
+    },
+    "color_palette": {
+      "dominant_hex_estimates": [
+        "#0B090A",
+        "#1A1A1A",
+        "#3D2B1F",
+        "#5E4B3C"
+      ],
+      "accent_colors": [
+        "#B85C38",
+        "#7393B3",
+        "#D4AF37"
+      ],
+      "contrast_level": "High"
+    }
+  },
+  "composition": {
+    "camera_angle": "Eye-level",
+    "framing": "Medium Shot / Waist-up",
+    "depth_of_field": "Shallow (Foreground subjects in focus, background heavily blurred)",
+    "focal_point": "The eye contact/space between the man and the woman",
+    "symmetry_type": "Asymmetrical Balance",
+    "rule_of_thirds_alignment": "The man and woman are roughly positioned on the vertical thirds."
+  },
+  "objects": [
+    {
+      "id": "obj_001",
+      "label": "Man",
+      "category": "Person",
+      "location": {
+        "relative_position": "Left foreground",
+        "bounding_box_percentage": {
+          "x": 0.0,
+          "y": 0.20,
+          "width": 32.5,
+          "height": 80.0
+        }
+      },
+      "dimensions_relative": "Large",
+      "distance_from_camera": "Near",
+      "pose_orientation": "Profile view, facing right, standing upright",
+      "material": "Skin, Hair, Fabric",
+      "surface_properties": {
+        "texture": "Short dark hair, groomed beard, textured fabric",
+        "reflectivity": "Low",
+        "micro_details": "Stubble on jawline, layered clothing",
+        "wear_state": "Clean"
+      },
+      "color_details": {
+        "base_color_hex": "#1A100F",
+        "secondary_colors": [
+          "#8B4513",
+          "#FFFFFF"
+        ],
+        "gradient_or_pattern": "Plaid/flannel pattern on jacket with red, blue, and brown tones over a white t-shirt"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "Soft shadows on the left side of his face (away from woman)",
+        "highlight_zones": "Forehead, bridge of nose, and shoulder edge",
+        "translucency": "None"
+      },
+      "relationships": [
+        {
+          "type": "facing",
+          "target_object_id": "obj_002"
+        }
+      ]
+    },
+    {
+      "id": "obj_002",
+      "label": "Woman",
+      "category": "Person",
+      "location": {
+        "relative_position": "Right foreground/midground",
+        "bounding_box_percentage": {
+          "x": 58.0,
+          "y": 35.0,
+          "width": 28.0,
+          "height": 65.0
+        }
+      },
+      "dimensions_relative": "Large",
+      "distance_from_camera": "Near-mid",
+      "pose_orientation": "Three-quarter profile, facing left, smiling slightly",
+      "material": "Skin, Hair, Denim",
+      "surface_properties": {
+        "texture": "Curly/wavy dark hair, denim fabric",
+        "reflectivity": "Medium (on hair highlights and buttons)",
+        "micro_details": "Subtle earring, gold-tone buttons on denim shirt",
+        "wear_state": "Clean"
+      },
+      "color_details": {
+        "base_color_hex": "#0D1B2A",
+        "secondary_colors": [
+          "#C2A382"
+        ],
+        "gradient_or_pattern": "Solid dark navy denim"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "Shadows on the right side of her neck and hair",
+        "highlight_zones": "Cheekbone, forehead, and curls of hair",
+        "translucency": "None"
+      },
+      "relationships": [
+        {
+          "type": "facing",
+          "target_object_id": "obj_001"
+        }
+      ]
+    },
+    {
+      "id": "obj_003",
+      "label": "Background Wall",
+      "category": "Architectural Element",
+      "location": {
+        "relative_position": "Full width background",
+        "bounding_box_percentage": {
+          "x": 0.0,
+          "y": 30.0,
+          "width": 100.0,
+          "height": 60.0
+        }
+      },
+      "dimensions_relative": "Massive",
+      "distance_from_camera": "Far",
+      "pose_orientation": "Flat, vertical plane",
+      "material": "Stone or Ceramic Tile",
+      "surface_properties": {
+        "texture": "Geometric relief",
+        "reflectivity": "Low",
+        "micro_details": "Square tiles containing a recessed diamond-and-cross pattern",
+        "wear_state": "Clean"
+      },
+      "color_details": {
+        "base_color_hex": "#2B1E16",
+        "secondary_colors": [
+          "#1A0F0A"
+        ],
+        "gradient_or_pattern": "Repeating grid of squares with internal geometric shapes"
+      },
+      "interaction_with_light": {
+        "shadow_casting": "Self-shadowing within the relief pattern",
+        "highlight_zones": "Top edges of the relief catching the overhead light",
+        "translucency": "None"
+      }
+    },
+    {
+      "id": "obj_004",
+      "label": "Clapping Person",
+      "category": "Person",
+      "location": {
+        "relative_position": "Center-bottom background",
+        "bounding_box_percentage": {
+          "x": 45.0,
+          "y": 60.0,
+          "width": 15.0,
+          "height": 40.0
+        }
+      },
+      "dimensions_relative": "Medium",
+      "distance_from_camera": "Far",
+      "pose_orientation": "Facing woman, hands together in a clap motion",
+      "material": "Fabric",
+      "surface_properties": {
+        "texture": "Blurred",
+        "reflectivity": "Low",
+        "micro_details": "Out of focus hands",
+        "wear_state": "Unknown"
+      },
+      "color_details": {
+        "base_color_hex": "#D3D3D3",
+        "secondary_colors": []
+      },
+      "interaction_with_light": {
+        "shadow_casting": "None visible due to blur",
+        "highlight_zones": "Hands",
+        "translucency": "None"
+      }
+    },
+    {
+      "id": "obj_005",
+      "label": "Man in Background",
+      "category": "Person",
+      "location": {
+        "relative_position": "Far right background",
+        "bounding_box_percentage": {
+          "x": 84.0,
+          "y": 48.0,
+          "width": 16.0,
+          "height": 52.0
+        }
+      },
+      "dimensions_relative": "Medium",
+      "distance_from_camera": "Far",
+      "pose_orientation": "Facing left, clapping",
+      "material": "Fabric",
+      "surface_properties": {
+        "texture": "Blurred",
+        "reflectivity": "Low",
+        "micro_details": "Dark hair, beard",
+        "wear_state": "Unknown"
+      },
+      "color_details": {
+        "base_color_hex": "#1A233A",
+        "secondary_colors": [
+          "#FFFFFF"
+        ]
+      },
+      "interaction_with_light": {
+        "shadow_casting": "None visible",
+        "highlight_zones": "Top of head",
+        "translucency": "None"
+      }
+    },
+    {
+      "id": "obj_006",
+      "label": "Sconce Lamp",
+      "category": "Light Fixture",
+      "location": {
+        "relative_position": "Top right background",
+        "bounding_box_percentage": {
+          "x": 88.0,
+          "y": 36.0,
+          "width": 4.0,
+          "height": 8.0
+        }
+      },
+      "dimensions_relative": "Small",
+      "distance_from_camera": "Far",
+      "pose_orientation": "Fixed to wall",
+      "material": "Glass / Metal",
+      "surface_properties": {
+        "texture": "Smooth/Glowing",
+        "reflectivity": "High",
+        "micro_details": "Rectangular glow",
+        "wear_state": "New"
+      },
+      "color_details": {
+        "base_color_hex": "#FFE4B5",
+        "secondary_colors": []
+      },
+      "interaction_with_light": {
+        "shadow_casting": "None (is light source)",
+        "highlight_zones": "Entire surface",
+        "translucency": "High"
+      }
+    }
+  ],
+  "background_details": {
+    "texture": "Geometric tiled wall with relief patterns",
+    "patterns": "Repeating diamond-in-square grid",
+    "lighting_behavior": "Recedes into darkness at the top, catches amber glow from sconces",
+    "additional_elements": [
+      "Indistinct figures in a state of motion/clapping",
+      "Vague light sources casting soft bokeh"
+    ]
+  },
+  "foreground_elements": {
+    "particles": "Subtle atmospheric haze",
+    "artifacts": "Slight lens flare or glow around the light sources, film-like grain"
+  },
+  "reconstruction_notes": {
+    "mandatory_elements_for_recreation": "Side-profile of man in plaid, three-quarter smile of woman in navy denim, tiled geometric background, warm/dark social lighting, shallow depth of field.",
+    "sensitivity_factors": "The eye contact between the two subjects is the emotional core; the specific geometric pattern of the wall adds texture and depth.",
+    "ambiguities": "The exact facial expressions of background characters are obscured by bokeh."
+  }
+}</div>
+            </details>
+        </div>
+
+        <div class="prompt-container">
+            <div class="prompt-number">4</div>
+            <img src="image4.jpg" alt="Reference Image 4" class="prompt-image">
+            <details>
+                <summary>Upload your image and paste this prompt.</summary>
+<div class="prompt-box">
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+
+                <div class="prompt-text">{
+  "prompt": "A cinematic wide-frame shot of a young couple standing face to face in the middle of a vast sunflower field. The man stands on the left side of the frame, slightly angled toward the woman, with short, styled black hair and light stubble. He is wearing a white sleeveless vest underneath an unbuttoned light blue denim shirt, giving a relaxed, casual rural look. The woman stands on the right side of the frame, facing the man, with long, voluminous curly brown hair flowing naturally. She is wearing a soft pastel yellow sleeveless dress with a gentle, romantic silhouette. Both subjects are gazing into each other’s eyes with calm, emotional expressions, creating an intimate and romantic mood.\n\nThe environment is a large open sunflower field stretching far into the background on both sides, with tall yellow sunflowers forming symmetrical rows. A narrow green dirt path runs between the rows, leading into the distance and creating strong depth and leading lines. The sky above is overcast with soft gray clouds, diffusing the sunlight evenly across the scene and giving a moody, cinematic atmosphere. The lighting is natural daylight with soft contrast, no harsh shadows, and subtle highlights on skin and clothing.\n\nThe color palette is earthy and cinematic, dominated by natural greens, sunflower yellows, muted blues, and warm skin tones. The image has a shallow depth of field, keeping the couple in sharp focus while the background gradually softens. The composition is balanced and symmetrical, with both characters centered horizontally and framed by the sunflower rows.\n\nThe overall style resembles a romantic movie still or high-end cinematic photography, with realistic skin textures, natural fabric folds, wind-touched hair, and authentic environmental details.",
+  "style": "cinematic realistic photography",
+  "camera": {
+    "shot_type": "medium wide shot",
+    "angle": "eye level",
+    "lens": "35mm cinematic lens",
+    "aperture": "f/2.8",
+    "depth_of_field": "shallow, background softly blurred",
+    "focus": "sharp on both faces"
+  },
+  "lighting": {
+    "type": "natural daylight",
+    "quality": "soft diffused light",
+    "source": "overcast sky",
+    "contrast": "low to medium",
+    "shadows": "soft and natural"
+  },
+  "composition": {
+    "framing": "centered couple",
+    "symmetry": "strong leading lines from sunflower rows",
+    "perspective": "straight-on",
+    "background": "expansive sunflower field with visible depth"
+  },
+  "environment": {
+    "location": "open countryside sunflower field",
+    "weather": "cloudy",
+    "season": "late summer",
+    "atmosphere": "romantic, calm, cinematic"
+  },
+  "mood": "romantic, emotional, peaceful, cinematic realism"
+}</div>
+            </details>
+        </div>
+
+        <div class="prompt-container">
+            <div class="prompt-number">5</div>
+            <img src="image5.jpg" alt="Reference Image 5" class="prompt-image">
+            <details>
+                <summary>Upload your image and paste this prompt.</summary>
+<div class="prompt-box">
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+
+                <div class="prompt-text">{
+  "prompt": "A cinematic wide-angle shot of a young couple standing in the middle of an expansive sunflower field. The camera is positioned slightly behind the man, showing his back and partial side profile as he faces the woman. The man has short, neatly styled black hair and a lean build. He is wearing a light blue denim overshirt layered over a white inner shirt, paired with beige trousers. His posture is relaxed, standing naturally on a narrow green path between rows of sunflowers.\n\nThe woman stands facing the man, fully visible to the camera. She has long, naturally curly brown hair flowing freely and a warm, gentle smile on her face. She is wearing a soft pastel yellow sleeveless dress with a fitted bodice and a flowing skirt, giving a romantic and airy feel. The fabric appears lightweight and moves subtly with the breeze. Her expression is calm, emotional, and affectionate.\n\nThe environment is a vast open sunflower field extending far into the background on both sides, filled with tall sunflowers in full bloom. The rows of flowers create strong depth and perspective lines leading into the horizon. The sky is overcast with soft, textured gray and pale greenish clouds, diffusing the sunlight evenly across the scene. The lighting is natural daylight with soft highlights, minimal contrast, and no harsh shadows.\n\nThe color palette is cinematic and natural, dominated by sunflower yellow, lush green foliage, muted blue tones, and warm skin tones. The depth of field is moderate, keeping both subjects sharp while allowing the distant sunflowers and trees to soften slightly. The overall composition feels balanced, peaceful, and cinematic, resembling a romantic film still captured during an emotional moment.",
+  "style": "cinematic realistic photography",
+  "camera": {
+    "shot_type": "wide shot",
+    "angle": "eye level, over-the-shoulder perspective",
+    "lens": "35mm cinematic lens",
+    "aperture": "f/4",
+    "depth_of_field": "moderate",
+    "focus": "sharp on both subjects"
+  },
+  "lighting": {
+    "type": "natural daylight",
+    "quality": "soft diffused light",
+    "source": "cloudy sky",
+    "contrast": "low",
+    "shadows": "soft and natural"
+  },
+  "composition": {
+    "framing": "man foreground, woman mid-frame",
+    "leading_lines": "sunflower rows and central path",
+    "balance": "symmetrical environment with centered subjects",
+    "perspective": "observational, cinematic"
+  },
+  "environment": {
+    "location": "open countryside sunflower field",
+    "weather": "overcast",
+    "season": "late summer",
+    "atmosphere": "romantic, calm, cinematic"
+  },
+  "mood": "romantic, emotional, peaceful, natural realism"
+}
+Create a new image with these persons from the uploaded images.</div>
+            </details>
+        </div>
+
+        <div class="prompt-container">
+            <div class="prompt-number">6</div>
+            <img src="image6.jpg" alt="Reference Image 6" class="prompt-image">
+            <details>
+                <summary>Upload your image and paste this prompt.</summary>
+<div class="prompt-box">
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+
+                <div class="prompt-text">Create a highly realistic cinematic photograph using my uploaded photo as the primary face and identity reference, with maximum facial accuracy, preserving my real facial structure, beard shape, skin tone, and natural expression. Do not alter facial identity.
+The scene is a top-down aerial cinematic shot of a young couple lying together in the middle of a vast sunflower field. They are positioned slightly off-center on a narrow grassy path that cuts through the dense sunflower plants.
+The young man (me) is lying on his back, relaxed, with his head gently turned toward the woman. He has a soft, peaceful smile, eyes partially closed, expressing comfort, love, and calm. He is wearing a light beige/off-white t-shirt, paired with an open light blue denim shirt and light-colored trousers. The clothing shows natural wrinkles, fabric folds, and realistic texture caused by lying on grass.
+The woman lies beside him, facing toward him, her head resting close to his shoulder. She wears a soft pastel yellow sleeveless dress, lightweight and flowing, with natural fabric drape and gentle folds. Her expression is warm and affectionate as she looks at him. Her hair falls naturally around her head and shoulders.
+The environment is a large sunflower field, filled with tall green stems, wide leaves, and bright yellow sunflower heads. Some sunflowers lean inward toward the grassy path, creating a natural framing around the couple. The field stretches endlessly in all directions, giving a sense of openness and intimacy within nature.
+Lighting & atmosphere:
+
+Overcast daylight, soft and diffused
+No harsh shadows
+Natural, balanced exposure
+Calm, breezy countryside feeling
+Cinematography & camera:
+
+High-angle / drone-style top-down shot
+Perfect symmetry with organic imperfections
+35mm cinematic lens look
+Moderate depth of field (foreground and couple sharp, background softly detailed)
+Natural perspective, no distortion
+Color grading & tone:
+
+Muted cinematic color palette
+Soft greens, earthy tones, gentle yellows
+Slight desaturation for a filmic look
+Warm skin tones
+Subtle film grain
+Very light vignette
+Overall style:
+
+Looks like a romantic indie film still
+Natural, unposed emotions
+Storytelling through composition
+Ultra-realistic textures (grass, leaves, fabric, skin)
+Photorealistic, no artificial glow or beauty filters
+Quality requirements:
+
+Extremely high realism
+Accurate anatomy
+No AI artifacts
+Natural lighting only
+Professional cinema still quality, 8K detail</div>
+            </details>
+        </div>
+
+        <div class="prompt-container">
+            <div class="prompt-number">7.1</div>
+            <img src="image7.jpg" alt="Reference Image 7" class="prompt-image">
+            <details>
+                <summary>Upload your image and paste this prompt.</summary>
+<div class="prompt-box">
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+
+                <div class="prompt-text">{
+  "prompt": "a wide, A candid cinematic photograph of a young couple running through a vast sunflower field during light rain, captured mid-motion as if taken spontaneously while the photographer was moving. The shot freezes a fleeting moment where both subjects are partially airborne, with feet slightly lifted off the ground, conveying real running motion rather than a posed stance.\n\nThe woman is positioned on the left side of the frame, running toward the right. Her body is slightly leaned forward, her right arm fully extended as she reaches for the man’s hand. Her long, curly brown hair is lifted and scattered by motion and rain, with individual strands caught mid-air. She is wearing a soft pastel yellow sleeveless dress, the fabric pulled backward by speed and dampened slightly by rain, creating natural folds and tension. Her expression is joyful and unguarded, smiling naturally while looking at the man, not directly aware of the camera.\n\nThe man is positioned on the right side of the frame, running toward the left. His torso is twisted slightly backward as he reaches out with his left arm to hold the woman’s hand, while his right arm trails behind for balance. He wears a white sleeveless vest under an open light blue overshirt, which flutters unevenly due to motion and wind. His expression is genuine and playful, caught mid-smile(without showing his teeth), eyes focused on the woman rather than the camera.\n\nTheir hands meet near the center of the frame, fingers loosely connected rather than tightly posed, emphasizing spontaneity. Fine rain droplets are visible throughout the frame, streaking diagonally due to motion blur and wind. Some droplets cling to hair and clothing, enhancing realism.\n\nThe camera is handheld at chest height, slightly tilted and imperfectly framed, introducing subtle motion blur around the edges while keeping the subjects sharp. Several sunflower heads occupy the lower foreground in soft blur, partially blocking the view and reinforcing the candid, documentary feel. The sunflower field stretches endlessly behind them, with a distant tree line beneath an overcast sky.\n\nLighting is natural and diffused from a cloudy sky, producing soft highlights, muted contrast, and cinematic color tones. The overall image feels raw, emotional, and authentic — like a real moment captured accidentally during movement, not staged or directed.",
+  "style": "candid cinematic photography",
+  "camera": {
+    "shot_type": "wide candid shot",
+    "camera_height": "chest level",
+    "handling": "handheld",
+    "angle": "eye level with slight tilt",
+    "lens": "35mm cinematic lens",
+    "shutter_speed": "fast enough to freeze mid-air motion with slight edge blur",
+    "aperture": "f/2.8",
+    "depth_of_field": "shallow foreground blur, subjects sharp"
+  },
+  "lighting": {
+    "type": "natural daylight",
+    "source": "overcast sky",
+    "quality": "soft diffused light",
+    "contrast": "low",
+    "weather_effects": "visible rain streaks and droplets"
+  },
+  "composition": {
+    "subject_placement": "woman left, man right",
+    "interaction": "loose hand connection at center",
+    "foreground": "blurred sunflower heads partially obstructing frame",
+    "framing_style": "imperfect, off-center, documentary-like"
+  },
+  "environment": {
+    "location": "open sunflower field",
+    "vegetation_density": "dense",
+    "season": "late summer",
+    "weather": "light rain",
+    "atmosphere": "fresh, emotional, cinematic realism"
+  },
+  "motion": {
+    "state": "subjects captured mid-run",
+    "body_physics": "hair, clothing, and limbs reacting naturally to speed",
+    "camera_motion": "slight handheld movement"
+  },
+  "mood": "joyful, intimate, spontaneous, real-life romance"
+}
+Create image with these persons.</div>
+            </details>
+        </div>
+
+        <div class="prompt-container">
+            <div class="prompt-number">7.2</div>
+            <img src="image8.jpg" alt="Reference Image 8" class="prompt-image">
+            <details>
+                <summary>No need to upload any image(Paste this prompt on the same chat)</summary>
+<div class="prompt-box">
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+
+                <div class="prompt-text">create a full macro closeup shot of their hands holding</div>
+            </details>
+        </div>
+
+        <div class="prompt-container">
+            <div class="prompt-number">8</div>
+            <img src="image9.jpg" alt="Reference Image 9" class="prompt-image">
+            <details>
+                <summary>Paste this prompt on the same chat</summary>
+<div class="prompt-box">
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+
+                <div class="prompt-text">make their hands unhold, a shot like before their hands reach(hands are not in contact, just up and down in between a small gap)</div>
+            </details>
+        </div>
+ <div class="prompt-container">
+            <div class="prompt-number">9</div>
+            <img src="image10.jpg" alt="Reference Image 9" class="prompt-image">
+            <details>
+                <summary>Screenshot (Upload This image while using the prompt)</summary>
+<div class="prompt-box">
+                    <button class="copy-btn" onclick="copyPrompt(this)">📋 Copy</button>
+
+                <div class="prompt-text">Recreate this sunflower field photograph with the character reference photos that is attached. Create a highly realistic, cinematic photograph using my uploaded photo as the primary face and identity reference, with maximum identity preservation. Maintain very high facial accuracy, matching my real facial structure, skin tone, hairline, and natural expression precisely. Do not alter or beautify the face.
+The scene shows a young couple in their early 20s captured mid-motion in the middle of a vast sunflower field, frozen in a candid, emotional moment. The image feels like a paused frame from a romantic indie film, natural, unposed and candid.
+
+Composition & Action
+The woman is on the left and the man (me) on the right, facing each other across a small distance. Their each arm are fully extended toward one another, hands clasped firmly at the center of the frame. Their bodies show natural forward momentum, with subtle lean and imbalance that suggests they were moving just before the frame was frozen. The moment feels dynamic, alive, and spontaneous running mid air shot.
+
+Man (Right Side – Me)
+I am wearing a light beige or off-white crew-neck t-shirt, layered with an open light blue denim shirt. The denim shirt hangs loosely, showing natural folds, wrinkles, and motion-induced fabric tension. My posture reflects movement: shoulders open, torso slightly rotated toward the woman, weight uneven as if mid-step. My head is turned toward her with a warm, joyful smile, eyes focused on her, expression genuine and emotionally present.
+
+Woman (Left Side)
+She is wearing a soft pastel yellow sleeveless dress, lightweight and flowing. The fabric shows natural draping and gentle pull caused by motion, especially around the waist and skirt. Her long, curly hair lifts and fans outward, frozen mid-movement. Her body leans slightly forward toward me, arm fully extended, fingers wrapped around my hand. Her expression is bright, joyful, and affectionate, eyes locked onto mine.
+
+Environment
+The couple is surrounded by an endless sunflower field, with dense green stems, large leaves, and vibrant yellow sunflower heads filling the frame. Some sunflowers appear softly out of focus in the foreground, partially obscuring the lower frame to add depth. The midground sunflowers frame the couple naturally, while the background stretches far into the distance. A dark green tree line runs along the horizon.
+
+Lighting & Atmosphere
+The sky is overcast with soft clouds, producing diffused, even natural daylight. There are no harsh shadows. Skin tones remain warm and natural, and the overall atmosphere feels calm, open, and cinematic.
+No rain, no water droplets, no weather effects of any kind.
+Camera & Cinematography
+Shot from an eye-level to slightly low camera angle, placing the viewer inside the sunflower field.
+35mm cinematic lens look, wide aperture (f/2 – f/2.8).
+Shallow depth of field with strong subject separation.
+
+Subjects are sharp, with softly blurred foreground and background.
+
+Natural perspective, no distortion.
+Color Grading & Film Look
+Muted, earthy cinematic color palette.
+
+Soft greens, warm yellows, natural skin tones.
+
+Slight teal-green undertones in the shadows.
+
+Film-like contrast with gentle highlight roll-off.
+
+Subtle organic film grain and a very light vignette.
+Overall Style & Quality
+Candid cinematic photography.
+
+Natural emotions, not posed.
+
+High dynamic range.
+
+Ultra-realistic textures (skin, hair, fabric, leaves, petals).
+
+Photorealistic, accurate anatomy.
+
+No stylization, no illustration, no AI artifacts.
+
+Natural lighting only.
+Professional cinema still quality, ultra-high resolution (8K realism).</div>
+            </details>
+        </div>
+
+
+    </div>
+
+    <a href="https://drive.google.com/drive/u/0/folders/1WQy6vfQAwbUyDVKXTAabWRgEniilEDVm" class="btn-download" target="_blank">📥 DOWNLOAD FULL PACKAGE (ZIP)</a>
+
+    <div class="footer">
+        <p>Created with ❤️ by <a href="https://instagram.com/d6mediastudio" target="_blank">@d6mediastudio</a></p>
+    </div>
+</div>
+<script>
+    function copyPrompt(button) {
+        // Find the prompt text div right below the button
+        const textDiv = button.nextElementSibling;
+        const textToCopy = textDiv.innerText;
+
+        // Copy to clipboard
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            // Visual feedback
+            button.innerHTML = "✅ Copied!";
+            button.style.backgroundColor = "#00d2ff";
+            button.style.color = "#121212";
+
+            // Reset after 2 seconds
+            setTimeout(() => {
+                button.innerHTML = "📋 Copy";
+                button.style.backgroundColor = "#3a3a3a";
+                button.style.color = "#e0e0e0";
+            }, 2000);
+        }).catch(err => {
+            console.error('Failed to copy text: ', err);
+        });
+    }
+</script>
+
+</body>
+</html>
