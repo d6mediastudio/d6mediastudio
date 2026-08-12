@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRASATH SIVAGURU | Video Editor & Motion Graphics Artist</title>
+    <meta name="description" content="Cinematic Portfolio of Prasath Sivaguru - Video Editor, Motion Graphics Artist, Photographer, Photo Editor, and Creative Post-Production Specialist.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Fixed Header Navigation -->
+    <header class="site-header" id="siteHeader">
+        <div class="nav-container">
+            <a href="#heroSequence" class="brand-logo">
+                <span class="brand-first">PRASATH</span>
+                <span class="brand-last">SIVAGURU</span>
+            </a>
+
+            <nav class="nav-links" id="navLinks">
+                <a href="#heroSequence" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#work" class="nav-link">Selected Work</a>
+                <a href="#skills" class="nav-link">Skills & Tools</a>
+                <a href="#contact" class="nav-link nav-cta">Get In Touch</a>
+            </nav>
+
+            <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="#heroSequence" class="mobile-nav-link">Home</a>
+            <a href="#about" class="mobile-nav-link">About</a>
+            <a href="#work" class="mobile-nav-link">Selected Work</a>
+            <a href="#skills" class="mobile-nav-link">Skills & Tools</a>
+            <a href="#contact" class="mobile-nav-link highlight">Get In Touch</a>
+        </nav>
+    </div>
+
+    <main id="mainContent">
+
+        <!-- ===================================================================
+             1. PINNED HERO SCROLL EXPERIENCE (259-FRAME IMAGE SEQUENCE)
+             =================================================================== -->
+        <section class="hero-sequence" id="heroSequence">
+            <div class="hero-sticky" id="heroSticky">
+                <!-- HTML5 Canvas for 259-Frame Animation -->
+                <canvas id="sequenceCanvas"></canvas>
+
+                <!-- Vignette Overlay -->
+                <div class="hero-vignette"></div>
+
+                <!-- Hero Content Overlay (Title & Subtitle Only) -->
+                <div class="hero-content">
+                    <div class="hero-text-wrapper">
+                        <h1 class="hero-title">
+                            <span class="title-line">PRASATH</span>
+                            <span class="title-line text-gradient">SIVAGURU</span>
+                        </h1>
+
+                        <p class="hero-subtitle hero-identity" id="heroIdentityContainer">
+                            <span class="identity-stage" id="heroIdentityStage" data-current-text="PRASATH SIVAGURU">PRASATH SIVAGURU</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             2. NARRATIVE TRANSITION SECTIONS (REVEALED ONLY AFTER FRAME 259)
+             =================================================================== -->
+        <section class="narrative-section" id="storyline">
+            <div class="section-container">
+
+                <div class="narrative-grid">
+                    <!-- Card 01 -->
+                    <div class="narrative-card" data-step="01">
+                        <div class="card-step-badge">01 / 04</div>
+                        <h2 class="card-title">
+                            VISUAL STORYTELLING &amp; CINEMATIC CUTS
+                        </h2>
+                        <p class="card-desc">
+                            Shaping narrative flow, pacing, and emotion to transform raw footage into captivating visual experiences.
+                        </p>
+                        <div class="card-glow"></div>
+                    </div>
+
+                    <!-- Card 02 -->
+                    <div class="narrative-card" data-step="02">
+                        <div class="card-step-badge">02 / 04</div>
+                        <h2 class="card-title">
+                            COLOR GRADING &amp; ATMOSPHERE
+                        </h2>
+                        <p class="card-desc">
+                            Enhancing tone, contrast, and filmic aesthetics with meticulous color balancing and LUT workflow.
+                        </p>
+                        <div class="card-glow"></div>
+                    </div>
+
+                    <!-- Card 03 -->
+                    <div class="narrative-card" data-step="03">
+                        <div class="card-step-badge">03 / 04</div>
+                        <h2 class="card-title">
+                            REELS &amp; SHORT-FORM MASTERY
+                        </h2>
+                        <p class="card-desc">
+                            Dynamic timing, punchy captions, and high-retention cuts engineered for modern digital platforms.
+                        </p>
+                        <div class="card-glow"></div>
+                    </div>
+
+                    <!-- Card 04 -->
+                    <div class="narrative-card card-featured" data-step="04">
+                        <div class="card-step-badge">04 / 04</div>
+                        <h2 class="card-title">
+                            READY TO ELEVATE YOUR VISUALS
+                        </h2>
+                        <p class="card-desc">
+                            Explore selected works, editing toolkit, and post-production capabilities below.
+                        </p>
+                        <div class="card-action">
+                            <a href="#work" class="btn btn-primary">
+                                <span>VIEW SELECTED WORK</span>
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </a>
+                        </div>
+                        <div class="card-glow"></div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             3. ABOUT SECTION
+             =================================================================== -->
+        <section class="about-section" id="about">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">POST-PRODUCTION SPECIALIST</span>
+                    <h2 class="section-heading">CRAFTING IMPACTFUL VISUALS</h2>
+                </div>
+
+                <div class="about-content-grid">
+                    <div class="about-main-card">
+                        <h3 class="about-lead">
+                            Passionate creative dedicated to narrative precision, color depth, and high-impact visual aesthetics.
+                        </h3>
+                        <p class="about-text">
+                            With specialized expertise in video editing, social reels, color grading, and photography post-production, I transform raw footage and images into polished, engaging visual stories. Every project is crafted with deliberate pacing, clean visual flow, strong color balance, and attention to detail.
+                        </p>
+                        <div class="about-pillars">
+                            <div class="pillar-item">
+                                <div class="pillar-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+                                </div>
+                                <div class="pillar-info">
+                                    <h4>Video Editing</h4>
+                                    <p>Narrative pacing, multi-cam editing, sound design integration, and polished final delivery.</p>
+                                </div>
+                            </div>
+
+                            <div class="pillar-item">
+                                <div class="pillar-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                                </div>
+                                <div class="pillar-info">
+                                    <h4>Reels &amp; Short Form</h4>
+                                    <p>Fast-paced social content, engaging cuts, captions, strong pacing, and platform-ready edits.</p>
+                                </div>
+                            </div>
+
+                            <div class="pillar-item">
+                                <div class="pillar-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+                                </div>
+                                <div class="pillar-info">
+                                    <h4>Color Grading &amp; Post-Production</h4>
+                                    <p>Cinematic color correction, tonal balancing, skin tones, contrast control, and polished finishing.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="about-side-card">
+                        <div class="creative-quote-box">
+                            <span class="quote-symbol">“</span>
+                            <p class="quote-body">
+                                Great editing is invisible when it needs to be, and unforgettable when it demands attention.
+                            </p>
+                            <span class="quote-author">— PRASATH SIVAGURU</span>
+                        </div>
+
+                        <div class="quick-spec-list">
+                            <div class="spec-row">
+                                <span class="spec-key">Core Disciplines</span>
+                                <span class="spec-val">Video &amp; Photo Editing</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">Primary Niche</span>
+                                <span class="spec-val">Cinematic Cuts &amp; Digital Content</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">Workflow</span>
+                                <span class="spec-val">Raw to Master Render</span>
+                            </div>
+                            <div class="spec-row">
+                                <span class="spec-key">Availability</span>
+                                <span class="spec-val highlight-purple">Open for Collaborations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             4. SELECTED WORK SECTION (REAL MEDIA FILES FROM /works/)
+             =================================================================== -->
+        <section class="work-section" id="work">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">CURATED PORTFOLIO</span>
+                    <h2 class="section-heading">SELECTED WORKS</h2>
+                </div>
+
+                <!-- Category Filters -->
+                <div class="work-filters">
+                    <button class="filter-btn active" data-filter="all">All Disciplines</button>
+                    <button class="filter-btn" data-filter="cinematic">Cinematic Cuts</button>
+                    <button class="filter-btn" data-filter="reels">Reels &amp; Short Form</button>
+                    <button class="filter-btn" data-filter="color">Color Grading</button>
+                    <button class="filter-btn" data-filter="motion">Motion Graphics</button>
+                    <button class="filter-btn" data-filter="photo">Photo Editing</button>
+                </div>
+
+                <!-- Portfolio Grid -->
+                <div class="portfolio-grid" id="portfolioGrid">
+
+                    <!-- Card 1: Insta Song REEL Edit -->
+                    <div class="portfolio-card" data-category="cinematic">
+                        <div class="card-media">
+                            <video src="works/Sequence%2001_2.mp4" autoplay muted loop playsinline preload="metadata"></video>
+                            <div class="card-overlay-gradient"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-cat">CINEMATIC CUTS</span>
+                            <h3 class="card-title">Insta Song REEL Edit</h3>
+                            <p class="card-summary">High-pacing montage with sound design, dynamic cuts, and seamless rhythm.</p>
+                            <div class="card-tags">
+                                <span>Premiere Pro</span>
+                                <span>Sound Design</span>
+                                <span>Commercial</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Podcast -->
+                    <div class="portfolio-card" data-category="reels">
+                        <div class="card-media">
+                            <video src="works/FAZIM%20SIR%20poadcast.mov%20(2).mp4" autoplay muted loop playsinline preload="metadata"></video>
+                            <div class="card-overlay-gradient"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-cat">REELS / SHORT FORM</span>
+                            <h3 class="card-title">Podcast</h3>
+                            <p class="card-summary">Dynamic podcast editing with multi-cam switching, animated captions, and clean audio balancing.</p>
+                            <div class="card-tags">
+                                <span>Podcast</span>
+                                <span>Multi-Cam</span>
+                                <span>Short Form</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Short Form — Dubai Client -->
+                    <div class="portfolio-card" data-category="color">
+                        <div class="card-media">
+                            <video src="works/R2%20Final.mp4" autoplay muted loop playsinline preload="metadata"></video>
+                            <div class="card-overlay-gradient"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-cat">COLOR GRADING</span>
+                            <h3 class="card-title">Short Form — Dubai Client</h3>
+                            <p class="card-summary">High-end commercial edit engineered for Dubai client with rich color balance and filmic contrast.</p>
+                            <div class="card-tags">
+                                <span>Color Balance</span>
+                                <span>Commercial</span>
+                                <span>LUT Workflow</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Motion Graphics -->
+                    <div class="portfolio-card" data-category="motion">
+                        <div class="card-media">
+                            <video src="works/remo.mp4" autoplay muted loop playsinline preload="metadata"></video>
+                            <div class="card-overlay-gradient"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-cat">MOTION GRAPHICS</span>
+                            <h3 class="card-title">Motion Graphics</h3>
+                            <p class="card-summary">Subtle glow kinetic typography and animated logo graphics built in After Effects.</p>
+                            <div class="card-tags">
+                                <span>After Effects</span>
+                                <span>Kinetic Type</span>
+                                <span>VFX</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 5: Editorial Portrait Series -->
+                    <div class="portfolio-card" data-category="photo">
+                        <div class="card-media">
+                            <img src="works/d6-media-studio-engagement-photography-aranthangi.webp" alt="Editorial Portrait Series" loading="lazy">
+                            <div class="card-overlay-gradient"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-cat">PHOTO EDITING</span>
+                            <h3 class="card-title">Editorial Portrait Series</h3>
+                            <p class="card-summary">Fine-art skin retouching, color correction, and lighting depth enhancement.</p>
+                            <div class="card-tags">
+                                <span>Lightroom</span>
+                                <span>Photoshop</span>
+                                <span>Retouching</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6: Color Grading Reel -->
+                    <div class="portfolio-card" data-category="color">
+                        <div class="card-media">
+                            <video src="works/NEW%20REEL.mp4" autoplay muted loop playsinline preload="metadata"></video>
+                            <div class="card-overlay-gradient"></div>
+                        </div>
+                        <div class="card-body">
+                            <span class="card-cat">COLOR GRADING</span>
+                            <h3 class="card-title">Color Grading Reel</h3>
+                            <p class="card-summary">Full end-to-end post-production compilation showcasing color grading transitions and filmic tones.</p>
+                            <div class="card-tags">
+                                <span>Color Grading</span>
+                                <span>Complete Suite</span>
+                                <span>Post-Production</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             5. SKILLS & TOOLS SECTION
+             =================================================================== -->
+        <section class="skills-section" id="skills">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tag">CREATIVE TOOLKIT</span>
+                    <h2 class="section-heading">SOFTWARE &amp; CAPABILITIES</h2>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Premiere Pro -->
+                    <div class="skill-card">
+                        <div class="tool-icon-wrapper pr-theme">
+                            <span class="tool-abbr">Pr</span>
+                        </div>
+                        <div class="skill-content">
+                            <h3 class="skill-title">Adobe Premiere Pro</h3>
+                            <p class="skill-desc">Non-linear editing, timeline pacing, multi-track audio sync, and sequence mastering.</p>
+                            <div class="skill-pills">
+                                <span>Narrative Cuts</span>
+                                <span>Multi-Cam</span>
+                                <span>Audio Sync</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- After Effects -->
+                    <div class="skill-card">
+                        <div class="tool-icon-wrapper ae-theme">
+                            <span class="tool-abbr">Ae</span>
+                        </div>
+                        <div class="skill-content">
+                            <h3 class="skill-title">Adobe After Effects</h3>
+                            <p class="skill-desc">2D motion graphics, kinetic animation, logo intro builds, lower thirds, and compositing.</p>
+                            <div class="skill-pills">
+                                <span>Motion Graphics</span>
+                                <span>VFX</span>
+                                <span>Kinetic Type</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Photoshop -->
+                    <div class="skill-card">
+                        <div class="tool-icon-wrapper ps-theme">
+                            <span class="tool-abbr">Ps</span>
+                        </div>
+                        <div class="skill-content">
+                            <h3 class="skill-title">Adobe Photoshop</h3>
+                            <p class="skill-desc">High-resolution image manipulation, texture cleanup, thumbnail design, and visual assets.</p>
+                            <div class="skill-pills">
+                                <span>Compositing</span>
+                                <span>Thumbnails</span>
+                                <span>Asset Design</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Lightroom -->
+                    <div class="skill-card">
+                        <div class="tool-icon-wrapper lr-theme">
+                            <span class="tool-abbr">Lr</span>
+                        </div>
+                        <div class="skill-content">
+                            <h3 class="skill-title">Adobe Lightroom</h3>
+                            <p class="skill-desc">Raw image processing, global color grading, preset creation, and batch photo polishing.</p>
+                            <div class="skill-pills">
+                                <span>RAW Processing</span>
+                                <span>Color Tone</span>
+                                <span>Batch Grading</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================================================================
+             6. CONTACT SECTION
+             =================================================================== -->
+        <section class="contact-section" id="contact">
+            <div class="section-container">
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <span class="badge-pill">
+                            <span class="badge-dot pulse"></span>
+                            <span class="badge-text">DIRECT INQUIRIES</span>
+                        </span>
+                        <h2 class="contact-title">GET IN TOUCH</h2>
+                        <p class="contact-subtitle">
+                            Available for video editing, motion graphics projects, photography post-production, and creative collaborations.
+                        </p>
+                    </div>
+
+                    <div class="email-copy-box">
+                        <div class="email-display">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <span id="emailAddress">info@d6mediastudio.in</span>
+                        </div>
+                        <button class="btn btn-primary btn-copy" id="copyEmailBtn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                            <span id="copyBtnText">Copy Email</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-left">
+                <span class="footer-brand">PRASATH SIVAGURU</span>
+                <span class="footer-copy">&copy; 2026 Prasath Sivaguru. All rights reserved.</span>
+            </div>
+            <a href="#heroSequence" class="back-to-top" id="backToTop" aria-label="Back to top">
+                <span>Top</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 15l-6-6-6 6"/></svg>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div class="toast-notification" id="toastNotification">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <span>Email copied to clipboard!</span>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
