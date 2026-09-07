@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kamalesh & Ramya | D6 Media Studio</title>
-    <!-- Google Fonts for romantic typography -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         body, html {
@@ -12,15 +12,15 @@
             padding: 0;
             height: 100%;
             font-family: 'Montserrat', sans-serif;
-            /* Romantic background gradient - you can replace this with a blurred couple photo */
             background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
             display: flex;
             justify-content: center;
             align-items: center;
+            overflow: hidden; /* Prevent scrollbars from flying hearts */
         }
 
         .card {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             padding: 40px 30px;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
@@ -28,6 +28,7 @@
             max-width: 400px;
             width: 90%;
             animation: fadeIn 1.5s ease-in-out;
+            z-index: 10; /* Put the card on top */
         }
 
         .welcome-text {
@@ -41,7 +42,7 @@
         .couple-names {
             font-family: 'Great Vibes', cursive;
             font-size: 3.5rem;
-            color: #d6336c; /* Elegant pinkish-red */
+            color: #d6336c; 
             margin: 0;
             line-height: 1.2;
         }
@@ -49,27 +50,58 @@
         .sub-text {
             font-size: 0.85rem;
             color: #555;
-            margin: 20px 0 30px;
+            margin: 20px 0 25px;
             line-height: 1.5;
         }
 
-        /* Cute Animated Button */
-        .gallery-btn {
+        /* Form Styles */
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group input {
+            width: 80%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.3s;
+            text-align: center;
+        }
+
+        .input-group input:focus {
+            border-color: #d6336c;
+        }
+
+        .unlock-btn {
             display: inline-block;
             background-color: #d6336c;
             color: white;
-            text-decoration: none;
-            padding: 15px 35px;
+            border: none;
+            cursor: pointer;
+            padding: 12px 35px;
             border-radius: 50px;
+            font-family: 'Montserrat', sans-serif;
             font-weight: 500;
+            font-size: 1rem;
+            margin-top: 10px;
             box-shadow: 0 4px 15px rgba(214, 51, 108, 0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            animation: pulse 2s infinite;
         }
 
-        .gallery-btn:hover {
-            transform: translateY(-3px);
+        .unlock-btn:hover {
+            transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(214, 51, 108, 0.5);
+        }
+
+        #error-msg {
+            color: #d6336c;
+            font-size: 0.8rem;
+            margin-top: 15px;
+            display: none;
+            font-weight: 500;
         }
 
         .footer {
@@ -84,36 +116,180 @@
             color: #333;
         }
 
-        /* Animations */
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+        /* Heart Animation Styles */
+        .hearts-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1; /* Behind the card */
+            pointer-events: none; /* Let clicks pass through */
         }
+
+        .heart {
+            position: absolute;
+            bottom: -50px; /* Start below viewport */
+            color: #f7bbd7; /* Soft pink color */
+            opacity: 0.6;
+            animation: flyUpAndDrift 25s linear infinite; /* Very slow, varied path */
+        }
+
+        /* Keyframes for the flying hearts */
+        @keyframes flyUpAndDrift {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+                opacity: 1;
+            }
+            25% {
+                transform: translateY(-30vh) translateX(5vw) rotate(90deg);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translateY(-60vh) translateX(-5vw) rotate(180deg);
+                opacity: 0.8;
+            }
+            75% {
+                transform: translateY(-90vh) translateX(3vw) rotate(270deg);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-110vh) translateX(0vw) rotate(360deg);
+                opacity: 0; /* Fade out at the top */
+            }
+        }
+
+        /* Generating multiple hearts with different initial conditions */
+        .heart:nth-child(1) { left: 1%; font-size: 1.2rem; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 5%; font-size: 2.1rem; animation-delay: 2s; }
+        .heart:nth-child(3) { left: 10%; font-size: 1.8rem; animation-delay: 4s; }
+        .heart:nth-child(4) { left: 15%; font-size: 2.3rem; animation-delay: -1s; }
+        .heart:nth-child(5) { left: 20%; font-size: 1.4rem; animation-delay: 6s; }
+        .heart:nth-child(6) { left: 25%; font-size: 2rem; animation-delay: 8s; }
+        .heart:nth-child(7) { left: 30%; font-size: 1.6rem; animation-delay: -3s; }
+        .heart:nth-child(8) { left: 35%; font-size: 2.5rem; animation-delay: 10s; }
+        .heart:nth-child(9) { left: 40%; font-size: 1.3rem; animation-delay: 12s; }
+        .heart:nth-child(10) { left: 45%; font-size: 1.9rem; animation-delay: -5s; }
+        .heart:nth-child(11) { left: 50%; font-size: 2.1rem; animation-delay: 14s; }
+        .heart:nth-child(12) { left: 55%; font-size: 1.7rem; animation-delay: 1s; }
+        .heart:nth-child(13) { left: 60%; font-size: 2.4rem; animation-delay: 16s; }
+        .heart:nth-child(14) { left: 65%; font-size: 1.5rem; animation-delay: -2s; }
+        .heart:nth-child(15) { left: 70%; font-size: 2rem; animation-delay: 18s; }
+        .heart:nth-child(16) { left: 75%; font-size: 1.8rem; animation-delay: 3s; }
+        .heart:nth-child(17) { left: 80%; font-size: 2.3rem; animation-delay: 20s; }
+        .heart:nth-child(18) { left: 85%; font-size: 1.4rem; animation-delay: -4s; }
+        .heart:nth-child(19) { left: 90%; font-size: 1.9rem; animation-delay: 5s; }
+        .heart:nth-child(20) { left: 95%; font-size: 2.1rem; animation-delay: 22s; }
+        .heart:nth-child(21) { left: 3%; font-size: 3rem; animation-delay: 11s; }
+        .heart:nth-child(22) { left: 8%; font-size: 1.5rem; animation-delay: 9s; }
+        .heart:nth-child(23) { left: 13%; font-size: 2.7rem; animation-delay: 7s; }
+        .heart:nth-child(24) { left: 18%; font-size: 1.6rem; animation-delay: 13s; }
+        .heart:nth-child(25) { left: 23%; font-size: 2.9rem; animation-delay: 15s; }
+        .heart:nth-child(26) { left: 28%; font-size: 1.4rem; animation-delay: 17s; }
+        .heart:nth-child(27) { left: 33%; font-size: 3rem; animation-delay: 19s; }
+        .heart:nth-child(28) { left: 38%; font-size: 1.5rem; animation-delay: 21s; }
+        .heart:nth-child(29) { left: 43%; font-size: 2.7rem; animation-delay: 23s; }
+        .heart:nth-child(30) { left: 48%; font-size: 1.6rem; animation-delay: 25s; }
     </style>
 </head>
 <body>
 
     <div class="card">
-        <div class="welcome-text">A Glimpse of Forever</div>
+        <div class="welcome-text">Private Gallery</div>
         
-        <!-- Couple Names -->
         <h1 class="couple-names">Kamalesh <br>&<br> Ramya</h1>
         
-        <p class="sub-text">Your beautiful moments have been carefully curated. Click below to relive your special day.</p>
+        <p class="sub-text">Enter your details to unlock your beautiful moments.</p>
         
-        <!-- REPLACE THE LINK HERE -->
-        <a href="YOUR_GOOGLE_DRIVE_LINK_HERE" class="gallery-btn">View Gallery 🤍</a>
-        
+        <!-- Login Form -->
+        <div id="login-form">
+            <div class="input-group">
+                <input type="text" id="mobile" placeholder="Mobile Number" autocomplete="off">
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" placeholder="Password">
+            </div>
+            
+            <button onclick="checkCredentials()" class="unlock-btn">Unlock Gallery 🤍</button>
+            
+            <p id="error-msg">Incorrect Mobile Number or Password. Try again!</p>
+        </div>
+
         <div class="footer">
             Captured with love by <br><b>D6 Media Studio</b>
         </div>
     </div>
 
+    <!-- Flying Hearts Container -->
+    <div class="hearts-container">
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+        <div class="heart">🤍</div>
+    </div>
+
+    <!-- Logic for Login -->
+    <script>
+        function checkCredentials() {
+            var mobileInput = document.getElementById("mobile").value.trim();
+            var passwordInput = document.getElementById("password").value.trim();
+            var errorMsg = document.getElementById("error-msg");
+            
+            // User Drive Link added here
+            var driveLink = "https://drive.google.com/drive/folders/1Hm8J--ULfYa4L4Rz7jz_Cc0komgITHTL?usp=sharing"; 
+
+            if (mobileInput === "8807870158" && passwordInput === "k.ramya") {
+                // Change button text to show success
+                document.querySelector('.unlock-btn').innerHTML = "Opening... ✨";
+                errorMsg.style.display = "none";
+                
+                // Redirect to Drive Link after a small delay for a smooth effect
+                setTimeout(function() {
+                    window.location.href = driveLink;
+                }, 800);
+            } else {
+                // Show error message
+                errorMsg.style.display = "block";
+                
+                // Shake effect for error (optional cool touch)
+                var card = document.querySelector('.card');
+                card.style.transform = "translateX(-5px)";
+                setTimeout(() => card.style.transform = "translateX(5px)", 100);
+                setTimeout(() => card.style.transform = "translateX(0)", 200);
+            }
+        }
+    </script>
 </body>
 </html>
