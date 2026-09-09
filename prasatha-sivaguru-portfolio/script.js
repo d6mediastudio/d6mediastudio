@@ -23,8 +23,6 @@
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
     const copyEmailBtn = document.getElementById('copyEmailBtn');
     const toastNotification = document.getElementById('toastNotification');
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const portfolioCards = document.querySelectorAll('.portfolio-card');
 
     // Identity Animation State
     let identityChangeTimeout = null;
@@ -295,31 +293,6 @@
     }
 
     /**
-     * Portfolio Category Filtering
-     */
-    function initPortfolioFilters() {
-        if (!filterButtons.length || !portfolioCards.length) return;
-
-        filterButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const filterValue = btn.getAttribute('data-filter');
-
-                portfolioCards.forEach(card => {
-                    const cardCat = card.getAttribute('data-category');
-                    if (filterValue === 'all' || cardCat === filterValue) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-    }
-
-    /**
      * Mobile Menu Navigation
      */
     function initMobileMenu() {
@@ -338,14 +311,61 @@
         });
     }
 
+
+
+    /**
+     * Video Gallery Lightbox
+     */
+    function initVideoGallery() {
+        const galleryCards = document.querySelectorAll('.video-gallery-card');
+        const lightbox = document.getElementById('videoLightbox');
+        const lightboxVideo = document.getElementById('lightboxVideo');
+        const lightboxTitle = document.getElementById('lightboxTitle');
+        const lightboxMeta = document.getElementById('lightboxMeta');
+        const lightboxClose = document.getElementById('lightboxClose');
+        const backdrop = lightbox ? lightbox.querySelector('[data-close-lightbox]') : null;
+
+        if (!galleryCards.length || !lightbox || !lightboxVideo) return;
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            lightbox.setAttribute('aria-hidden', 'true');
+            lightboxVideo.pause();
+            lightboxVideo.removeAttribute('src');
+            lightboxVideo.load();
+            document.body.classList.remove('no-scroll');
+        }
+
+        galleryCards.forEach(card => {
+            card.addEventListener('click', () => {
+                const video = card.getAttribute('data-video');
+                const title = card.getAttribute('data-title') || 'Video Project';
+                const meta = card.getAttribute('data-meta') || '';
+                lightboxVideo.src = video;
+                lightboxTitle.textContent = title;
+                lightboxMeta.textContent = meta;
+                lightbox.classList.add('open');
+                lightbox.setAttribute('aria-hidden', 'false');
+                document.body.classList.add('no-scroll');
+                lightboxVideo.play().catch(() => {});
+            });
+        });
+
+        lightboxClose.addEventListener('click', closeLightbox);
+        if (backdrop) backdrop.addEventListener('click', closeLightbox);
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+        });
+    }
+
     /**
      * Initialize Portfolio App
      */
     function init() {
         initFramePreloader();
         initEmailCopy();
-        initPortfolioFilters();
         initMobileMenu();
+        initVideoGallery();
 
         window.addEventListener('scroll', handleScroll, { passive: true });
         window.addEventListener('resize', handleResize);
