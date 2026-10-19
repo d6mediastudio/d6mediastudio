@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>காதணி விழா - K. சரவணன் | Digital Album</title>
+  <title>Saravanan Ear Piercing Ceremony | D6 Media Studio</title>
+  <meta name="description" content="K. Saravanan Ear Piercing Ceremony Digital Album by D6 Media Studio">
   <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
   <style>
     * {
@@ -56,6 +57,7 @@
       overflow: hidden;
       backface-visibility: hidden;
       transform: translateZ(0);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.85);
     }
 
     .page img {
@@ -95,6 +97,7 @@
       align-items: center;
       gap: 14px;
       background: rgba(25, 25, 25, 0.85);
+      backdrop-filter: blur(8px);
       padding: 6px 18px;
       border-radius: 30px;
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -113,6 +116,12 @@
       align-items: center;
       cursor: pointer;
       font-size: 12px;
+      transition: all 0.15s ease;
+    }
+
+    .nav-btn:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: #fff;
     }
 
     .nav-btn:active {
@@ -173,7 +182,6 @@
     for (let i = 1; i <= totalInnerPages; i++) files.push(`${i}.jpg`);
     files.push('Cover Back.jpg');
 
-    // Create lightweight pages with lazy data-src
     files.forEach((fileName, idx) => {
       const pageDiv = document.createElement('div');
       pageDiv.className = 'page';
@@ -184,7 +192,6 @@
       const img = document.createElement('img');
       img.dataset.src = encodeURI(fileName);
       img.decoding = 'async';
-      // Load first 6 pages immediately
       if (idx < 6) img.src = img.dataset.src;
 
       pageDiv.appendChild(img);
@@ -212,7 +219,6 @@
     const labelEl = document.getElementById('page-label');
     const totalCount = files.length;
 
-    // Preload nearby pages on demand so browser never lags
     function preloadNearby(currentIndex) {
       const start = Math.max(0, currentIndex - 4);
       const end = Math.min(totalCount - 1, currentIndex + 8);
