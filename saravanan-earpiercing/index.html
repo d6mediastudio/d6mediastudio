@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>காதணி விழா - K. சரவணன் | Digital Album</title>
+  <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: #080808;
+      color: #fff;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    .album-stage {
+      width: 94vw;
+      height: 80vh;
+      max-width: 1350px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+
+    #book-mover {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: transform;
+    }
+
+    .flip-book {
+      display: none;
+    }
+
+    .page {
+      position: absolute;
+      background-color: #111;
+      overflow: hidden;
+      backface-visibility: hidden;
+      transform: translateZ(0);
+    }
+
+    .page img {
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .page.--left::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 4%;
+      height: 100%;
+      background: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.35));
+      pointer-events: none;
+    }
+
+    .page.--right::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4%;
+      height: 100%;
+      background: linear-gradient(to left, rgba(0,0,0,0), rgba(0,0,0,0.35));
+      pointer-events: none;
+    }
+
+    .bottom-bar {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(25, 25, 25, 0.85);
+      padding: 6px 18px;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      z-index: 20;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #eaeaea;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      font-size: 12px;
+    }
+
+    .nav-btn:active {
+      transform: scale(0.92);
+    }
+
+    #page-label {
+      color: #e0e0e0;
+      font-size: 13px;
+      font-weight: 500;
+      min-width: 95px;
+      text-align: center;
+    }
+
+    #rotate-notice {
+      display: none;
+      position: fixed;
+      bottom: 65px;
+      background: rgba(20, 20, 20, 0.9);
+      color: #ccc;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 12px;
+      border: 1px solid #333;
+      z-index: 30;
+    }
+
+    @media (max-width: 768px) and (orientation: portrait) {
+      #rotate-notice { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="rotate-notice">🔄 போனை Landscape-ல் திருப்பிப் பார்க்கவும்</div>
+
+  <div class="album-stage">
+    <div id="book-mover">
+      <div id="book" class="flip-book"></div>
+    </div>
+  </div>
+
+  <div class="bottom-bar">
+    <button class="nav-btn" id="btn-first" title="First Page">&#124;&#9664;</button>
+    <button class="nav-btn" id="btn-prev" title="Previous">&#9664;</button>
+    <span id="page-label">Front Cover</span>
+    <button class="nav-btn" id="btn-next" title="Next">&#9654;</button>
+    <button class="nav-btn" id="btn-last" title="Back Cover">&#9654;&#124;</button>
+    <button class="nav-btn" id="btn-fs" title="Fullscreen">&#x26F6;</button>
+  </div>
+
+  <script>
+    const bookEl = document.getElementById('book');
+    const bookMover = document.getElementById('book-mover');
+    const totalInnerPages = 54;
+
+    const files = ['Cover Front.jpg'];
+    for (let i = 1; i <= totalInnerPages; i++) files.push(`${i}.jpg`);
+    files.push('Cover Back.jpg');
+
+    // Create lightweight pages with lazy data-src
+    files.forEach((fileName, idx) => {
+      const pageDiv = document.createElement('div');
+      pageDiv.className = 'page';
+      if (idx === 0 || idx === files.length - 1) {
+        pageDiv.setAttribute('data-density', 'hard');
+      }
+
+      const img = document.createElement('img');
+      img.dataset.src = encodeURI(fileName);
+      img.decoding = 'async';
+      // Load first 6 pages immediately
+      if (idx < 6) img.src = img.dataset.src;
+
+      pageDiv.appendChild(img);
+      bookEl.appendChild(pageDiv);
+    });
+
+    const pageFlip = new St.PageFlip(bookEl, {
+      width: 900,
+      height: 600,
+      size: 'stretch',
+      minWidth: 280,
+      maxWidth: 1400,
+      minHeight: 186,
+      maxHeight: 933,
+      showCover: true,
+      maxShadowOpacity: 0.5,
+      flippingTime: 650,
+      usePortrait: false,
+      mobileScrollSupport: false
+    });
+
+    const allPageEls = document.querySelectorAll('.page');
+    pageFlip.loadFromHTML(allPageEls);
+
+    const labelEl = document.getElementById('page-label');
+    const totalCount = files.length;
+
+    // Preload nearby pages on demand so browser never lags
+    function preloadNearby(currentIndex) {
+      const start = Math.max(0, currentIndex - 4);
+      const end = Math.min(totalCount - 1, currentIndex + 8);
+      for (let i = start; i <= end; i++) {
+        const img = allPageEls[i].querySelector('img');
+        if (img && !img.getAttribute('src')) {
+          img.src = img.dataset.src;
+        }
+      }
+    }
+
+    function updateAlbumState(targetIdx) {
+      const idx = typeof targetIdx === 'number' ? targetIdx : pageFlip.getCurrentPageIndex();
+      preloadNearby(idx);
+
+      if (idx === 0) {
+        labelEl.textContent = 'Front Cover';
+        bookMover.style.transform = 'translateX(-25%)';
+      } else if (idx >= totalCount - 1) {
+        labelEl.textContent = 'Back Cover';
+        bookMover.style.transform = 'translateX(25%)';
+      } else {
+        const leftPage = idx % 2 === 1 ? idx : idx - 1;
+        const rightPage = leftPage + 1;
+        labelEl.textContent = `${leftPage}-${rightPage} / ${totalInnerPages}`;
+        bookMover.style.transform = 'translateX(0%)';
+      }
+    }
+
+    document.getElementById('btn-first').onclick = () => pageFlip.flip(0);
+    document.getElementById('btn-prev').onclick = () => {
+      preloadNearby(totalCount - 1);
+      pageFlip.flipPrev();
+    };
+    document.getElementById('btn-next').onclick = () => pageFlip.flipNext();
+    document.getElementById('btn-last').onclick = () => {
+      preloadNearby(totalCount - 1);
+      pageFlip.flip(totalCount - 1);
+    };
+
+    document.getElementById('btn-fs').onclick = () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        document.exitFullscreen();
+      }
+    };
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') pageFlip.flipPrev();
+      if (e.key === 'ArrowRight') pageFlip.flipNext();
+    });
+
+    pageFlip.on('flip', (e) => updateAlbumState(e.data));
+    updateAlbumState(0);
+  </script>
+</body>
+</html>
