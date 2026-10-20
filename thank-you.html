@@ -7,8 +7,8 @@
 
 <style>
 :root{
-  --gold:#d4af37;
-  --black:#050505;
+  --gold:#C6A15B;
+  --black:#080808;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -35,11 +35,12 @@ body{
 
 /* ===== CARD ===== */
 .card{
-  background:#050505;
+  background:var(--black);
+  border:1px solid rgba(198,161,91,.25);
   border-radius:24px;
   padding:50px 45px;
   text-align:center;
-  box-shadow:0 0 60px rgba(212,175,55,.4);
+  box-shadow:0 0 60px rgba(198,161,91,.4);
   animation:pop 1s ease forwards;
   z-index:2;
 }
@@ -56,8 +57,8 @@ body{
 }
 
 @keyframes logoGlow{
-  from{filter:drop-shadow(0 0 10px rgba(212,175,55,.5))}
-  to{filter:drop-shadow(0 0 30px rgba(212,175,55,.9))}
+  from{filter:drop-shadow(0 0 10px rgba(198,161,91,.5))}
+  to{filter:drop-shadow(0 0 30px rgba(198,161,91,.9))}
 }
 
 h1{
@@ -95,7 +96,7 @@ a:hover{
   width:10px;
   height:10px;
   border-radius:50%;
-  background:radial-gradient(circle,#ffd87a,#d4af37);
+  background:radial-gradient(circle,#E6D3A3,#C6A15B);
   pointer-events:none;
   animation:fall linear forwards;
   z-index:1;
@@ -114,7 +115,7 @@ a:hover{
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background: radial-gradient(circle, #ffd87a, #d4af37);
+  background: radial-gradient(circle, #E6D3A3, #C6A15B);
   pointer-events: none;
   z-index: 9999;
   animation: fall linear forwards;
@@ -154,7 +155,7 @@ a:hover{
 <div class="flash" id="flash"></div>
 
 <div class="card">
-  <img src="images/logo.png" alt="D6 Media Studio">
+  <img src="images/d6-media-studio-brand-logo.png" alt="D6 Media Studio">
   <h1>Thank You ✨</h1>
   <p>Your enquiry has been successfully submitted.<br>
      Our team will contact you shortly.</p>
