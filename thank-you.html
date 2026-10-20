@@ -1,251 +1,434 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Thank You | D6 Media Studio</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You | D6 Media Studio</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="https://d6mediastudio.in/thank-you.html">
 
-<style>
-:root{
-  --gold:#C6A15B;
-  --black:#080808;
-}
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="48x48" href="images/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="shortcut icon" href="images/favicon-32x32.png">
 
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-  background:#000;
-  font-family:'Poppins',sans-serif;
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  overflow:hidden;
-  color:#fff;
-}
+  <!-- Typography & Core CSS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap">
+  </noscript>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/luxury-redesign.css">
 
-/* ===== FLASH ===== */
-.flash{
-  position:fixed;
-  inset:0;
-  background:white;
-  opacity:0;
-  pointer-events:none;
-  z-index:9999;
-}
+  <style>
+    /* Dedicated Cinematic Thank-You Experience */
+    :root {
+      --bg-deep: #070709;
+      --card-bg: rgba(18, 18, 22, 0.88);
+      --gold-primary: #C6A15B;
+      --gold-light: #E6D3A3;
+      --gold-dark: #8B6F3A;
+      --gold-border: rgba(198, 161, 91, 0.24);
+      --gold-glow: rgba(198, 161, 91, 0.16);
+      --text-main: #F5F0E7;
+      --text-muted: #AAA49A;
+      --font-display: 'Cinzel', serif;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    }
 
-/* ===== CARD ===== */
-.card{
-  background:var(--black);
-  border:1px solid rgba(198,161,91,.25);
-  border-radius:24px;
-  padding:50px 45px;
-  text-align:center;
-  box-shadow:0 0 60px rgba(198,161,91,.4);
-  animation:pop 1s ease forwards;
-  z-index:2;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-@keyframes pop{
-  from{transform:scale(.7);opacity:0}
-  to{transform:scale(1);opacity:1}
-}
+    body {
+      background-color: var(--bg-deep);
+      background-image: 
+        radial-gradient(circle at 50% 15%, rgba(198, 161, 91, 0.09) 0%, transparent 60%),
+        radial-gradient(circle at 50% 85%, rgba(198, 161, 91, 0.04) 0%, transparent 50%);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      overflow-x: hidden;
+      position: relative;
+    }
 
-.card img{
-  width:90px;
-  margin-bottom:20px;
-  animation:logoGlow 2s ease infinite alternate;
-}
+    /* Ambient Corner Grain & Glow */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at center, transparent 30%, rgba(5, 5, 7, 0.75) 100%);
+      z-index: 1;
+    }
 
-@keyframes logoGlow{
-  from{filter:drop-shadow(0 0 10px rgba(198,161,91,.5))}
-  to{filter:drop-shadow(0 0 30px rgba(198,161,91,.9))}
-}
+    .thank-you-stage {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 660px;
+      margin: auto;
+    }
 
-h1{
-  color:var(--gold);
-  font-size:32px;
-  margin-bottom:10px;
-}
+    /* Cinematic Glass Card */
+    .thank-you-card {
+      background: var(--card-bg);
+      border: 1px solid var(--gold-border);
+      border-radius: 24px;
+      padding: clamp(36px, 6vw, 64px) clamp(24px, 5vw, 48px);
+      text-align: center;
+      position: relative;
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      box-shadow: 
+        0 24px 60px -12px rgba(0, 0, 0, 0.95),
+        0 0 50px var(--gold-glow);
+      animation: cardFadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      overflow: hidden;
+    }
 
-p{
-  color:#ccc;
-  font-size:15px;
-  line-height:1.6;
-}
+    /* Top Subtle Gold Gradient Accent Bar */
+    .thank-you-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), var(--gold-light), var(--gold-primary), transparent);
+    }
 
-a{
-  display:inline-block;
-  margin-top:25px;
-  padding:14px 40px;
-  border:1px solid var(--gold);
-  border-radius:30px;
-  color:var(--gold);
-  text-decoration:none;
-  transition:.3s;
-}
+    /* Brand Logo */
+    .brand-anchor {
+      display: inline-block;
+      margin-bottom: 24px;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
 
-a:hover{
-  background:var(--gold);
-  color:#000;
-}
+    .brand-anchor:hover {
+      transform: scale(1.03);
+      filter: drop-shadow(0 0 16px rgba(198, 161, 91, 0.45));
+    }
 
-/* ===== CONFETTI ===== */
-.confetti{
-  position:fixed;
-  top:-20px;
-  width:10px;
-  height:10px;
-  border-radius:50%;
-  background:radial-gradient(circle,#E6D3A3,#C6A15B);
-  pointer-events:none;
-  animation:fall linear forwards;
-  z-index:1;
-}
+    .thank-you-logo {
+      height: 58px;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 0 12px rgba(198, 161, 91, 0.3));
+    }
 
-@keyframes fall{
-  to{
-    transform:translateY(110vh) rotate(360deg);
-    opacity:0;
-  }
-}
-/* TOP RAIN CONFETTI */
-.confetti {
-  position: fixed;
-  top: -10px;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #E6D3A3, #C6A15B);
-  pointer-events: none;
-  z-index: 9999;
-  animation: fall linear forwards;
-}
+    /* Subtle Success Seal Animation */
+    .success-badge-wrap {
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
 
-@keyframes fall {
-  to {
-    transform: translateY(110vh) rotate(360deg);
-    opacity: 0;
-  }
-}
+    .success-svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 14px rgba(198, 161, 91, 0.4));
+    }
 
-/* CLICK BURST CONFETTI */
-.burst {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: gold;
-  pointer-events: none;
-  z-index: 10000;
-  animation: burst .8s ease-out forwards;
-}
+    .circle-track {
+      stroke: rgba(198, 161, 91, 0.18);
+    }
 
-@keyframes burst {
-  to {
-    transform: translate(var(--x), var(--y)) scale(0);
-    opacity: 0;
-  }
-}
+    .circle-animated {
+      stroke-dasharray: 188;
+      stroke-dashoffset: 188;
+      animation: drawCircle 1s cubic-bezier(0.65, 0, 0.35, 1) forwards 0.2s;
+    }
 
-</style>
+    .check-animated {
+      stroke-dasharray: 40;
+      stroke-dashoffset: 40;
+      animation: drawCheck 0.65s cubic-bezier(0.65, 0, 0.35, 1) forwards 0.75s;
+    }
+
+    @keyframes drawCircle {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes drawCheck {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes cardFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* Eyebrow & Status */
+    .thank-you-eyebrow {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 11px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    /* Main Heading */
+    .thank-you-title {
+      font-family: var(--font-display);
+      font-size: clamp(26px, 4.5vw, 36px);
+      font-weight: 600;
+      letter-spacing: 2px;
+      line-height: 1.25;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+
+    .thank-you-title span {
+      background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 50%, var(--gold-dark) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Gold Divider */
+    .divider {
+      width: 54px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+      margin: 0 auto 20px;
+    }
+
+    /* Confirmation Message */
+    .thank-you-message {
+      font-size: clamp(14.5px, 1.2vw, 16px);
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      font-weight: 300;
+    }
+
+    .thank-you-message strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* Signature Slogan */
+    .thank-you-tagline {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 14px;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: rgba(198, 161, 91, 0.75);
+      margin-bottom: 32px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(198, 161, 91, 0.12);
+    }
+
+    /* Action Buttons */
+    .action-group {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-action-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 28px;
+      border-radius: 40px;
+      background: linear-gradient(135deg, #E6D3A3 0%, #C6A15B 50%, #8B6F3A 100%);
+      color: #070709;
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.35s ease;
+      box-shadow: 0 4px 20px rgba(198, 161, 91, 0.3);
+      cursor: pointer;
+    }
+
+    .btn-action-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(198, 161, 91, 0.5);
+      color: #000;
+    }
+
+    .btn-action-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 12px 28px;
+      border-radius: 40px;
+      background: transparent;
+      border: 1px solid rgba(198, 161, 91, 0.4);
+      color: var(--text-main);
+      font-family: var(--font-display);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1.8px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.35s ease;
+      cursor: pointer;
+    }
+
+    .btn-action-whatsapp:hover {
+      background: rgba(198, 161, 91, 0.12);
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+      transform: translateY(-2px);
+    }
+
+    .btn-icon {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+
+    /* Direct Contact Note */
+    .direct-assistance {
+      margin-top: 28px;
+      font-size: 13px;
+      color: rgba(170, 164, 154, 0.75);
+      font-weight: 400;
+    }
+
+    .direct-assistance a {
+      color: var(--gold-primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .direct-assistance a:hover {
+      color: var(--gold-light);
+      text-decoration: underline;
+    }
+
+    /* Accessibility: Reduced Motion Support */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .circle-animated, .check-animated {
+        stroke-dashoffset: 0 !important;
+      }
+      .thank-you-card {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
+    /* Mobile Adjustments */
+    @media (max-width: 576px) {
+      .action-group {
+        flex-direction: column;
+        width: 100%;
+      }
+      .btn-action-primary,
+      .btn-action-whatsapp {
+        width: 100%;
+      }
+      .thank-you-card {
+        padding: 36px 20px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="flash" id="flash"></div>
+  <main class="thank-you-stage">
+    <div class="thank-you-card">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="brand-anchor" aria-label="Return to D6 Media Studio Homepage">
+        <img src="images/d6-media-studio-brand-logo.webp" alt="D6 Media Studio Brand Logo" width="229" height="260" class="thank-you-logo">
+      </a>
 
-<div class="card">
-  <img src="images/d6-media-studio-brand-logo.png" alt="D6 Media Studio">
-  <h1>Thank You ✨</h1>
-  <p>Your enquiry has been successfully submitted.<br>
-     Our team will contact you shortly.</p>
-  <a href="index.html">Back to Home</a>
-</div>
+      <!-- Subtle Gold Success Seal -->
+      <div class="success-badge-wrap" aria-hidden="true">
+        <svg class="success-svg" viewBox="0 0 64 64" fill="none">
+          <circle class="circle-track" cx="32" cy="32" r="28" stroke-width="2"/>
+          <circle class="circle-animated" cx="32" cy="32" r="28" stroke="url(#goldGrad)" stroke-width="2"/>
+          <path class="check-animated" d="M20 33L28.5 41.5L44 24" stroke="url(#goldGrad)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="goldGrad" x1="0" y1="0" x2="64" y2="64" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#E6D3A3"/>
+              <stop offset="0.5" stop-color="#C6A15B"/>
+              <stop offset="1" stop-color="#8B6F3A"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
 
-<audio id="shutter" src="audio/camera-shutter.mp3" preload="auto"></audio>
+      <!-- Eyebrow & Titles -->
+      <span class="thank-you-eyebrow">ENQUIRY GRACIOUSLY RECEIVED</span>
+      <h1 class="thank-you-title">Thank You for <span>Reaching Out</span></h1>
+      <div class="divider" aria-hidden="true"></div>
 
-<script>
-const shutter = document.getElementById("shutter");
-const flash   = document.getElementById("flash");
+      <!-- Message -->
+      <p class="thank-you-message">
+        Your enquiry has been successfully delivered to our team. We approach every wedding as an enduring visual heirloom. 
+        Our creative directors will review your date, venue, and vision, and connect with you shortly with our bespoke celebration details.
+      </p>
 
-/* ===== CONFETTI TOP DROP ===== */
-function confettiBurst(){
-  for(let i=0;i<40;i++){
-    const c=document.createElement("div");
-    c.className="confetti";
-    c.style.left=Math.random()*window.innerWidth+"px";
-    c.style.animationDuration=(3+Math.random()*2)+"s";
-    document.body.appendChild(c);
-    setTimeout(()=>c.remove(),5000);
-  }
-}
+      <!-- Signature Tagline -->
+      <div class="thank-you-tagline">WE PRESERVE MOMENTS THAT LIVE FOREVER</div>
 
-/* ===== FLASH ===== */
-function cameraFlash(){
-  flash.style.opacity=1;
-  setTimeout(()=>flash.style.opacity=0,120);
-}
+      <!-- Action Buttons -->
+      <div class="action-group">
+        <a href="index.html" class="btn-action-primary">
+          <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          Return to Homepage
+        </a>
 
-/* ===== AUTO ON PAGE LOAD ===== */
-window.addEventListener("DOMContentLoaded",()=>{
-  confettiBurst();
-  cameraFlash();
+        <a href="https://wa.me/919080928044?text=Hello%20D6%20Media%20Studio%2C%20I%20have%20submitted%20a%20wedding%20photography%20enquiry." target="_blank" rel="noopener" class="btn-action-whatsapp">
+          <svg class="btn-icon" viewBox="0 0 24 24">
+            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/>
+          </svg>
+          Chat on WhatsApp
+        </a>
+      </div>
 
-  /* autoplay safe method */
-  shutter.muted=true;
-  shutter.play().then(()=>{
-    shutter.muted=false;
-  }).catch(()=>{});
-});
+      <!-- Immediate Contact Link -->
+      <div class="direct-assistance">
+        Immediate enquiry? Call directly at <a href="tel:+919080928044">+91 90809 28044</a>
+      </div>
 
-/* ===== FIRST USER INTERACTION → SOUND GUARANTEE ===== */
-window.addEventListener("click",()=>{
-  shutter.muted=false;
-  shutter.currentTime=0;
-  shutter.play();
-},{once:true});
-</script>
-<script>
-/* ===== PAGE LOAD CONFETTI (TOP) ===== */
-function rainConfetti(count = 40){
-  for(let i=0;i<count;i++){
-    const c = document.createElement("div");
-    c.className = "confetti";
-    c.style.left = Math.random() * window.innerWidth + "px";
-    c.style.animationDuration = (3 + Math.random() * 2) + "s";
-    document.body.appendChild(c);
-    setTimeout(()=>c.remove(),5000);
-  }
-}
-window.addEventListener("load", rainConfetti);
-
-/* ===== CLICK SOUND + OPTIONAL CONFETTI BURST ===== */
-let soundPlayed = false;
-const shutter = document.getElementById("shutter");
-
-window.addEventListener("click", e => {
-
-  // 🔊 play sound only once
-  if(!soundPlayed){
-    shutter.currentTime = 0;
-    shutter.play().catch(()=>{});
-    soundPlayed = true;
-  }
-
-  // 🎊 optional burst
-  for(let i=0;i<12;i++){
-    const b = document.createElement("div");
-    b.className = "burst";
-    b.style.left = e.clientX + "px";
-    b.style.top  = e.clientY + "px";
-    b.style.setProperty("--x",(Math.random()-0.5)*160+"px");
-    b.style.setProperty("--y",(Math.random()-0.5)*160+"px");
-    document.body.appendChild(b);
-    setTimeout(()=>b.remove(),800);
-  }
-
-},{ once:true }); // 👈 first click only
-</script>
+    </div>
+  </main>
 
 </body>
 </html>
